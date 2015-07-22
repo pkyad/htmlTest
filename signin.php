@@ -1,7 +1,6 @@
-<?php
 
-$name = $_POST['email'];
-echo "some text: "
-echo $email;
+<?php
+echo $_POST['email'];
+echo "Hello World!";
 ?>
 
