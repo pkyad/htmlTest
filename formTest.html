@@ -1,134 +1,211 @@
 <div class="container">
-	<h2>Registration Form</h2>
-	<div class="col-sm-offset-1 class="col-sm-10"">
-	<form method="post" action="submitForm.php" class="form-horizontal" role="form">
-  
-  	<!-- name -->
-  	<div class="form-group">
-		<label class="control-label col-sm-2" for="name">Name:</label>
-		<div class="col-sm-4">
-			<input type="text" class="form-control" id="name" placeholder="First name">
-		</div>
-		<div class="col-sm-3">
-			<input type="text" class="form-control" id="name" placeholder="Last name">
-		</div>
-		
-	</div>
-	<div class="form-group">
-		<label class="control-label col-sm-2" for="dob"> Gender:</label>
-		<div class="col-sm-3">
-			<label class="radio-inline"><input type="radio" name="optradio">Female</label>
-			<label class="radio-inline"><input type="radio" name="optradio">Male</label>
-		</div>
-	</div>
-	<div class="form-group">
-		<label class="control-label col-sm-2" for="dob"> Date of Birth:</label>
-		<div class="col-sm-2">
-			<select class="form-control" id="dob">
-				<option>Day</option>
-				<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
-				<option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option>
-				<option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option>
-				<option>18</option><option>19</option><option>20</option><option>21</option><option>22</option><option>23</option>
-				<option>24</option><option>25</option><option>26</option><option>27</option><option>28</option><option>29</option>
-				</option><option>30</option><option>31</option>
-			</select>
-		</div>
-		<div class="col-sm-2">
-			<select class="form-control" id="dob">
-				<option>Month</option><option>January</option><option>February</option><option>March</option>
-				<option>April</option><option>May</option><option>June</option><option>July</option>
-				<option>August</option><option>September</option><option>October</option><option>November</option><option>December</option>
-			</select>
-		</div>
-		<div class="col-sm-2">
-			<select class="form-control" id="dob">
-				<option>Year</option><option>1990</option><option>1991</option><option>1992</option>
-				<option>1993</option><option>1994</option><option>1995</option><option>1996</option>
-				<option>1997</option><option>1998</option><option>1999</option><option>2000</option>
-				<option>2001</option><option>2002</option><option>2003</option><option>2004</option>
-				<option>2005</option><option>2006</option><option>2007</option><option>2008</option>
-				<option>2009</option><option>2010</option><option>2011</option><option>2012</option>
-			</select>
-		</div>
-		
-	</div>
-	
-	
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="email">Email:</label>
-      <div class="col-sm-7">
-        <input type="email" class="form-control" id="email" placeholder="Enter email">
-      </div>
-    </div>
+	<h2>Candidate's portal</h2>
+  	<ul class="nav nav-tabs">
+    	<li class="active"><a data-toggle="tab" href="#login">Login</a></li>
+    	<li><a data-toggle="tab" href="#registration">Registration</a></li>
+  	</ul>
+
+  	<div class="tab-content">
+    	<div id="login" class="tab-pane fade in active">
+      		<h3>Login to personalized portal</h3>
+      
+			<form class="form-horizontal">
+  				<div class="form-group">
+    				<label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+    				<div class="col-sm-5">
+      					<input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+    				</div>
+  				</div>
+  				<div class="form-group">
+    				<label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+    				<div class="col-sm-5">
+      					<input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+    				</div>
+  				</div>
+  				<div class="form-group">
+    				<div class="col-sm-offset-2 col-sm-10">
+      					<div class="checkbox">
+        					<label>
+          						<input type="checkbox"> Remember me
+        					</label>
+      					</div>
+    				</div>
+  				</div>
+  				<div class="form-group">
+    				<div class="col-sm-offset-2 col-sm-10">
+      					<button type="submit" class="btn btn-success">Sign in</button>
+      					<button class="btn btn-default" type="submit">Forgot password?</button>
+    				</div>
+    			
+  				</div>
+			</form>    
     
-	<div class="form-group">
-		<label class="control-label col-sm-2" for="department">Department:</label>
-		<div class="col-sm-4">
-			<input type="text" class="form-control" id="department" placeholder="Enter department">
+    	</div>
+	    <div id="registration" class="tab-pane fade"> 
+		    <div class="container">
+				<h2>Registration Form</h2>
+				<div class="col-sm-11">
+					<form id="loginForm" method="post" action="submitForm.php" class="form-horizontal" role="form">
+				  
+				  	<!-- name -->
+					  	<div class="form-group">
+							<label class="control-label col-sm-2" for="name">Name:</label>
+							<div class="col-sm-5">
+								<input name="firstName" type="text" class="form-control" id="name" placeholder="First name">
+							</div>
+							<div class="col-sm-5">
+								<input name="lastName" type="text" class="form-control" id="name" placeholder="Last name">
+							</div>
+							
+						</div>
+					
+					
+						<div class="form-group">
+							<label class="control-label col-sm-2" for="dob"> Gender:</label>
+							<div class="col-sm-4">
+								<label class="radio-inline"><input name="genderFemale" type="radio" name="optradio">Female</label>
+								<label class="radio-inline"><input name="gendermale" type="radio" name="optradio">Male</label>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-2" for="dob"> Date of Birth:</label>
+							<div class="col-sm-3">
+								<select name="dobDay" class="form-control" id="dob">
+									<option>Day</option>
+									<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+									<option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option>
+									<option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option>
+									<option>18</option><option>19</option><option>20</option><option>21</option><option>22</option><option>23</option>
+									<option>24</option><option>25</option><option>26</option><option>27</option><option>28</option><option>29</option>
+									</option><option>30</option><option>31</option>
+								</select>
+							</div>
+							<div class="col-sm-3">
+								<select name="dobMonth" class="form-control" id="dob">
+									<option>Month</option><option>January</option><option>February</option><option>March</option>
+									<option>April</option><option>May</option><option>June</option><option>July</option>
+									<option>August</option><option>September</option><option>October</option><option>November</option><option>December</option>
+								</select>
+							</div>
+							<div class="col-sm-4">
+								<select name="dobYear" class="form-control" id="dob">
+									<option>Year</option><option>1990</option><option>1991</option><option>1992</option>
+									<option>1993</option><option>1994</option><option>1995</option><option>1996</option>
+									<option>1997</option><option>1998</option><option>1999</option><option>2000</option>
+									<option>2001</option><option>2002</option><option>2003</option><option>2004</option>
+									<option>2005</option><option>2006</option><option>2007</option><option>2008</option>
+									<option>2009</option><option>2010</option><option>2011</option><option>2012</option>
+								</select>
+							</div>
+							
+						</div>
+					
+					
+					    <div class="form-group">	
+					      <label class="control-label col-sm-2" for="email">Email:</label>
+					      
+					      <div class="col-sm-4">
+					      	<div class="input-group">
+					      		<span class="input-group-addon">@</span>
+					        		<input name="email" type="email" class="form-control" id="email" placeholder="Enter email" >
+					      	</div>
+					      </div>
+					      
+					      <label class="control-label col-sm-2" for="institute">Mobile:</label>
+
+							<div class="col-sm-4">
+								<div class="input-group">
+					      		<span class="input-group-addon">+91</span>
+									<input name="mobile" type="text" class="form-control" id="mobile" placeholder="Enter 10 digits only">
+								</div>
+							</div>
+					    </div>		   
+				    
+						<div class="form-group">
+							<label class="control-label col-sm-2" for="department">Department:</label>
+							<div class="col-sm-6">
+								<input name="department" type="text" class="form-control" id="department" placeholder="Enter department">
+							</div>
+							<div class="col-sm-4">
+								<select name="program" class="form-control" id="dob">
+									<option>Program</option>
+									<option>4 Yr. B.Tech</option>
+									<option>5 Yr. B.Tech+M.Tech</option>
+									<option>5 Yr. Msc</option>
+								</select>
+							</div>
+							
+						</div>
+					
+						<div class="form-group">
+							<label class="control-label col-sm-2" for="institute">College:</label>
+							<div class="col-sm-10">
+								<input name="institute" type="text" class="form-control" id="institute" placeholder="Enter Institute's name">
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label class="control-label col-sm-2" for="cpi">CGPA/CPI:</label>
+							<div class="col-sm-3">
+								<input name="cpi" type="text" class="form-control" id="cpi" placeholder="Till last semester">
+							</div>
+							<label class="control-label col-sm-3" for="cpi">12th performance:</label>
+							<div class="col-sm-4">
+								<input name="12th" type="text" class="form-control" id="12th" placeholder="% or Grade">
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label class="control-label col-sm-2" for="dob"> Interested in:</label>
+							<div class="col-sm-5">
+								<select name="domain" class="form-control" id="domain">
+									<option>Select domain</option>
+									<option>Information Technology</option>
+									<option>Manufacturing</option>
+									<option>Consultancy</option>
+									<option>Chemical/Bio Tech/FMCG</option>
+									<option>Automotive</option>
+									<option>Others.. </option>
+								</select>
+							</div>
+							<div class="col-sm-5">
+								<input name="ifOthers" type="text" class="form-control" id="domain" placeholder="Specify if others..">
+							</div>
+							
+						</div>
+				    	<div class="form-group">
+				      		<label class="control-label col-sm-2" for="pwd">Password:</label>
+				      		<div class="col-sm-4">         
+				        		<input name="pwd" type="password" class="form-control" id="pwd" placeholder="Enter password">
+				      		</div>
+				      		<label class="control-label col-sm-2" for="pwd2">Confirm:</label>
+				      		<div class="col-sm-4">          
+				        		<input name="pwd2" type="password" class="form-control" id="pwd2" placeholder="Re-enter password">
+				      		</div>
+				    	</div>
+				    
+				    
+				   		<div class="form-group">
+				   			<label class="control-label col-sm-2" for="inputFile">Resume:</label>
+				    		<div class="col-sm-4">
+				    			<input type="file" id="inputFile">
+				    			<p class="help-block">Example block-level help text here.</p>
+				  			</div>
+				  		</div>
+						<div class="form-group">        
+							<div class="col-sm-offset-2 col-sm-10">
+								<button type="button" class="btn btn-success">Submit</button>
+							</div>
+						</div>
+					
+					</form>
+
+				</div>
+				
+				
+			</div>
 		</div>
-		<div class="col-sm-3">
-			<select class="form-control" id="dob">
-				<option>Program</option>
-				<option>4 Yr. B.Tech</option>
-				<option>5 Yr. B.Tech+M.Tech</option>
-				<option>5 Yr. Msc</option>
-			</select>
-		</div>
-		
 	</div>
-	
-	<div class="form-group">
-		<label class="control-label col-sm-2" for="institute">Institute/University:</label>
-		<div class="col-sm-7">
-			<input type="text" class="form-control" id="institute" placeholder="Enter Institute's name">
-		</div>
-	</div>
-	
-	<div class="form-group">
-		<label class="control-label col-sm-2" for="cpi">CGPA/CPI:</label>
-		<div class="col-sm-7">
-			<input type="text" class="form-control" id="cpi" placeholder="Till last semester">
-		</div>
-	</div>
-	
-	<div class="form-group">
-		<label class="control-label col-sm-2" for="dob"> Interested in:</label>
-		<div class="col-sm-3">
-			<select class="form-control" id="domain">
-				<option>Select domain</option>
-				<option>Information Technology</option>
-				<option>Manufacturing</option>
-				<option>Consultancy</option>
-				<option>Chemical/Bio Tech/FMCG</option>
-				<option>Automotive</option>
-				<option>Others.. </option>
-			</select>
-		</div>
-		<div class="col-sm-4">
-			<input type="text" class="form-control" id="domain" placeholder="Specify if others..">
-		</div>
-		
-	</div>
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="pwd">Password:</label>
-      <div class="col-sm-7">          
-        <input type="password" class="form-control" id="pwd" placeholder="Enter password">
-      </div>
-    </div>
-	<div class="form-group">
-      <label class="control-label col-sm-2" for="pwd2">Confirm password:</label>
-      <div class="col-sm-7">          
-        <input type="password" class="form-control" id="pwd2" placeholder="Re-enter password">
-      </div>
-    </div>
-    
-	<div class="form-group">        
-		<div class="col-sm-offset-2 col-sm-10">
-			<button type="button" class="btn btn-success">Submit</button>
-		</div>
-	</div>
-	
-  </form>
-  </div>
 </div>
+
+
