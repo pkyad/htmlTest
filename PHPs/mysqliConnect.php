@@ -1,8 +1,8 @@
- <?php
+<?php
 $servername = "localhost";
 $username = "root";
 $password = "janhvi";
-$dbname = "testDb";
+$dbname = "candidatesDb";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -10,14 +10,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
+
 echo "Connected";
-$sql = "INSERT INTO table1 VALUE ('pradeep', NULL);
 
-if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-}
-
-$conn->close();
-?> 
+?>
