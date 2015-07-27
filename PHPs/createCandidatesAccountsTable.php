@@ -1,20 +1,12 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "janhvi";
-$dbname = "candidatesDb";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+require_once('mysqliConnect.php');
+
 $sql = "DROP TABLE accounts";
 if ($conn->query($sql) === TRUE) {
     echo "Droped the table accounts";
 } else {
-    echo "Error creating table: " . $conn->error;
+    echo "Error deleting table: " . $conn->error;
 }
 
 // sql to create table
