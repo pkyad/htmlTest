@@ -1,0 +1,44 @@
+
+<script> 
+    $(function(){
+    $("#HROpeningsContainer").load("HROpeningsContainer.html");
+	$("#HRAnnounceOpeningsContainer").load("HRAnnounceOpeningsContainer.html");
+	$("#HROnboargingContainer").load("HROnboargingContainer.html");
+	$("#HREditQuesBank").load("HREditQuesBank.html");
+	$("#HRSetPaperContainer").load("HRSetPaperContainer.html");
+
+    });
+</script>
+
+<div class="container">
+    <h2>Recruitment</h2>
+  	<ul class="nav nav-tabs">
+		<li class="active"><a data-toggle="tab" href="#openings">Active openings</a></li>
+		<li ><a data-toggle="tab" href="#announceOpenings">Announce openings</a></li>
+		<li><a data-toggle="tab" href="#induction">Induction</a></li>
+    	<li><a data-toggle="tab" href="#editQuesBank">Edit question bank</a></li>
+		<li><a data-toggle="tab" href="#setPaper">Set question paper</a></li>
+		
+  	</ul>
+
+  	<div class="tab-content">
+		<div id="openings" class="tab-pane fade in active">
+			<div id="HROpeningsContainer"></div>
+		</div>
+    	<div id="announceOpenings" class="tab-pane fade">
+			<div id="HRAnnounceOpeningsContainer"></div>
+    	</div>
+		<div id="induction" class="tab-pane fade">
+			<div id="HRInductionContainer"></div>
+		</div>
+		<div id="editQuesBank" class="tab-pane fade">
+			<div id="HREditQuesBank"></div>
+		</div>
+		<div id="setPaper" class="tab-pane fade">
+			<div id="HRSetPaperContainer"></div>
+		</div>
+
+	</div>
+</div>
+
+

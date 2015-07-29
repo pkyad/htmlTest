@@ -1,0 +1,191 @@
+<script type="text/javascript">
+$(document).ready(function() {
+    var activeSystemClass = $('.list-group-item.active');
+
+    //something is entered in search form
+    $('#system-search').keyup( function() {
+       var that = this;
+        // affect all table rows on in systems table
+        var tableBody = $('.table-list-search tbody');
+        var tableRowsClass = $('.table-list-search tbody tr');
+        $('.search-sf').remove();
+        tableRowsClass.each( function(i, val) {
+        
+            //Lower text for case insensitive
+            var rowText = $(val).text().toLowerCase();
+            var inputText = $(that).val().toLowerCase();
+            if(inputText != '')
+            {
+                $('.search-query-sf').remove();
+                tableBody.prepend('<tr class="search-query-sf"><td colspan="6"><strong>Searching for: "'
+                    + $(that).val()
+                    + '"</strong></td></tr>');
+            }
+            else
+            {
+                $('.search-query-sf').remove();
+            }
+
+            if( rowText.indexOf( inputText ) == -1 )
+            {
+                //hide rows
+                tableRowsClass.eq(i).hide();
+                
+            }
+            else
+            {
+                $('.search-sf').remove();
+                tableRowsClass.eq(i).show();
+            }
+        });
+        //all tr elements are hidden
+        if(tableRowsClass.children(':visible').length == 0)
+        {
+            tableBody.append('<tr class="search-sf"><td class="text-muted" colspan="6">No entries found.</td></tr>');
+        }
+    });
+});
+</script>
+
+
+<div class="container table-db">
+    <div class="row">
+        <div class="col-md-3">
+            <form action="#" method="get">
+                <div class="input-group">
+                    <!-- USE TWITTER TYPEAHEAD JSON WITH API TO SEARCH -->
+                    <input class="form-control" id="system-search" name="q" placeholder="Search for" required>
+                    <span class="input-group-btn">
+                        <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+                    </span>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-9">
+         <table class="table table-list-search">
+                    <thead>
+                        <tr>
+                            <th>JAF ID</th>
+                            <th>Domain</th>
+                            <th>Position</th>
+                            <th>Place</th>
+							<th>Type</th>
+                            <th>Last updated</th>
+                            <th>More</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>20161</td>
+                            <td>Automotive</td>
+                            <td>Fresher</td>
+                            <td>Sonpur</td>
+							<td>Regular</td>
+                            <td>Jan 9, 2015</td>
+                            <td><span class="btn label label-info" data-toggle="modal" data-target="#myModal">Info</span></td>
+
+							<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+							  <div class="modal-dialog" role="document">
+								<div class="modal-content">
+								  <div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+									<h4 class="modal-title" id="myModalLabel">Job details for JAF # 20161</h4>
+								  </div>
+								  <div class="modal-body">
+									<h3>Assosciate Design Engineer</h3>
+									Applications are invited for the position of Assosciate Design Engineer available at our Sonpur office. The last date to apply to this position is
+									<strong> 20 Feb 2015 </strong>
+									</br>
+									</br>
+									<strong> Responsibilities : </strong> Successful candidates will required to undergo an extensive training for the design and developemnt of the
+									Computer Aided Design of machine parts. A candidate with solid mathematical background will easly fit into the team. Prior experience with any of the
+									CAD software will also help the candidate easily follow in the training period. You should be familiar with the machine kinematics and common design strategy.
+									<ul> <h4>Educational Requirements</h4>
+										<li>B. Tech/ M.Tech - Mechanical</li>
+										<li>PhD - Design, Manufacturing, Automation, Mathematics</li>
+										<li>B. Sc. Mathematics </li>
+									</ul>
+									<ul> <h4>Software/Programming skills desired</h4>
+										<li>SolidWorks/AutoCAD/FreeCAD</li>
+										<li>C++/Python</li>
+									</ul>
+									
+								  </div>
+								  <div class="modal-footer">
+									<p align="justify"><strong> How to apply : </strong> To apply, register yourself as a candidate and then login to a personalised portal where
+									you can submit the application for any of the openings. Please note the Job Announcement Form number (JAF #) for this position.</p>
+									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								  </div>
+								</div>
+							  </div>
+							</div>
+							
+                        </tr>
+                        <tr>
+                            <td>20162</td>
+                            <td>HR</td>
+                            <td>Fresher</td>
+                            <td>Patna</td>
+							<td>Regular</td>
+                            <td>Jan 11, 2015</td>
+                            <td><span class="btn label label-info" data-toggle="modal" data-target="#myModal2">Info</span></td>
+							
+							<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+							  <div class="modal-dialog" role="document">
+								<div class="modal-content">
+								  <div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+									<h4 class="modal-title" id="myModalLabel">Job details for JAF # 20161</h4>
+								  </div>
+								  <div class="modal-body">
+									<h3>Assosciate Design Engineer</h3>
+									Applications are invited for the position of Assosciate Design Engineer available at our Sonpur office. The last date to apply to this position is
+									<strong> 20 Feb 2015 </strong>
+									</br>
+									</br>
+									<strong> Responsibilities : </strong> Successful candidates will required to undergo an extensive training for the design and developemnt of the
+									Computer Aided Design of machine parts. A candidate with solid mathematical background will easly fit into the team. Prior experience with any of the
+									CAD software will also help the candidate easily follow in the training period. You should be familiar with the machine kinematics and common design strategy.
+									<ul> <h4>Educational Requirements</h4>
+										<li>B. Tech/ M.Tech - Mechanical</li>
+										<li>PhD - Design, Manufacturing, Automation, Mathematics</li>
+										<li>B. Sc. Mathematics </li>
+									</ul>
+									<ul> <h4>Software/Programming skills desired</h4>
+										<li>SolidWorks/AutoCAD/FreeCAD</li>
+										<li>C++/Python</li>
+									</ul>
+									
+								  </div>
+								  <div class="modal-footer">
+									<p align="justify"><strong> How to apply : </strong> To apply, register yourself as a candidate and then login to a personalised portal where
+									you can submit the application for any of the openings. Please note the Job Announcement Form number (JAF #) for this position.</p>
+									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								  </div>
+								</div>
+							  </div>
+							</div>
+                        </tr>
+                        <tr>
+                            <td>20163</td>
+                            <td>Automotive</td>
+                            <td>Fresher</td>
+                            <td>Sonpur</td>
+							<td>Short term</td>
+                            <td>Dec 19, 2015</td>
+                            <td><span class="btn label label-info">Info</span></td>
+                        </tr>
+                        <tr>
+                            <td>20164</td>
+                            <td>Bio Sciences</td>
+                            <td>Fresher</td>
+                            <td>Sonpur</td>
+							<td>Internship</td>
+                            <td>May 29, 2015</td>
+                            <td><span class="btn label label-info">Info</span></td>
+                        </tr>
+                    </tbody>
+                </table>   
+        </div>
+    </div>
+</div>

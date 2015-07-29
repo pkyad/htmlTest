@@ -47,6 +47,12 @@ $(document).ready(function() {
 });
 </script>
 
+<script> 
+    $(function(){
+    $("#HRManageJAFContainer").load("HRManageJAFContainer.html");
+
+    });
+</script>
 
 <div class="container table-db">
     <div class="row">
@@ -69,8 +75,9 @@ $(document).ready(function() {
                             <th>Domain</th>
                             <th>Position</th>
                             <th>Place</th>
+							<th>Type</th>
                             <th>Last updated</th>
-                            <th>More</th>
+                            <th>...</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -79,15 +86,10 @@ $(document).ready(function() {
                             <td>Automotive</td>
                             <td>Fresher</td>
                             <td>Sonpur</td>
+							<td>Regular</td>
                             <td>Jan 9, 2015</td>
-                            <td><span class="btn label label-info" data-toggle="modal" data-target="#myModal">Info</span></td>
-							
-							<!-- Button trigger modal -->
-<!-- 							<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-							  Launch demo modal
-							</button> -->
+                            <td><button class="btn label label-default" data-toggle="modal" data-target="#myModal">Manage</button></td>
 
-							<!-- Modal -->
 							<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 							  <div class="modal-dialog" role="document">
 								<div class="modal-content">
@@ -113,9 +115,11 @@ $(document).ready(function() {
 										<li>SolidWorks/AutoCAD/FreeCAD</li>
 										<li>C++/Python</li>
 									</ul>
-										
+									
 								  </div>
 								  <div class="modal-footer">
+									<p align="justify"><strong> How to apply : </strong> To apply, register yourself as a candidate and then login to a personalised portal where
+									you can submit the application for any of the openings. Please note the Job Announcement Form number (JAF #) for this position.</p>
 									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 								  </div>
 								</div>
@@ -128,24 +132,80 @@ $(document).ready(function() {
                             <td>HR</td>
                             <td>Fresher</td>
                             <td>Patna</td>
+							<td>Regular</td>
                             <td>Jan 11, 2015</td>
-                            <td><span class="btn label label-info">Info</span></td>
+                            <td><button class="btn label label-default" data-toggle="modal" data-target="#myModal2">Manage</button></td>
+							
+							<div class="modal fade bs-example-modal-lg" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+							  <div class="modal-dialog modal-lg" role="document">
+								<div class="modal-content">
+								  <div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+									<h4 class="modal-title" id="myModalLabel">Job details for JAF # 20161</h4>
+								  </div>
+								  <div class="modal-body">
+									<h3>Test Assosciate Design Engineer</h3>
+									Applications are invited for the position of Assosciate Design Engineer available at our Sonpur office. The last date to apply to this position is
+									<strong> 20 Feb 2015 </strong>
+									</br>
+									</br>
+									<strong> Responsibilities : </strong> Successful candidates will required to undergo an extensive training for the design and developemnt of the
+									Computer Aided Design of machine parts. A candidate with solid mathematical background will easly fit into the team. Prior experience with any of the
+									CAD software will also help the candidate easily follow in the training period. You should be familiar with the machine kinematics and common design strategy.
+									<ul> <h4>Educational Requirements</h4>
+										<li>B. Tech/ M.Tech - Mechanical</li>
+										<li>PhD - Design, Manufacturing, Automation, Mathematics</li>
+										<li>B. Sc. Mathematics </li>
+									</ul>
+									<ul> <h4>Software/Programming skills desired</h4>
+										<li>SolidWorks/AutoCAD/FreeCAD</li>
+										<li>C++/Python</li>
+									</ul>
+									
+								  </div>
+								  <div class="modal-footer">
+									<p align="justify"><strong> How to apply : </strong> To apply, register yourself as a candidate and then login to a personalised portal where
+									you can submit the application for any of the openings. Please note the Job Announcement Form number (JAF #) for this position.</p>
+									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								  </div>
+								</div>
+							  </div>
+							</div>
                         </tr>
                         <tr>
                             <td>20163</td>
                             <td>Automotive</td>
                             <td>Fresher</td>
                             <td>Sonpur</td>
+							<td>Short term</td>
                             <td>Dec 19, 2015</td>
-                            <td><span class="btn label label-info">Info</span></td>
+                            <td><button class="btn label label-default" data-toggle="modal" data-target="#myModal3">Manage</button></td>
+							
+							<div class="modal fade bs-example-modal-lg" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+							  <div class="modal-dialog modal-xlg" role="document">
+								<div class="modal-content">
+								  <div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+									<h4 class="modal-title" id="myModalLabel">Manage JAF # 20163</h4>
+								  </div>
+								  <div class="modal-body">
+									<div id="HRManageJAFContainer"></div>
+								  </div>
+								  <div class="modal-footer">
+									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								  </div>
+								</div>
+							  </div>
+							</div>
                         </tr>
                         <tr>
                             <td>20164</td>
                             <td>Bio Sciences</td>
                             <td>Fresher</td>
                             <td>Sonpur</td>
+							<td>Internship</td>
                             <td>May 29, 2015</td>
-                            <td><span class="btn label label-info">Info</span></td>
+                            <td><button class="btn label label-default" data-toggle="modal" data-target="#myModal">Manage</button></td>
                         </tr>
                     </tbody>
                 </table>   

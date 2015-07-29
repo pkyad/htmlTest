@@ -9,3 +9,6 @@
   margin-top: 20px;
 }
 
+.modal-xlg {
+    width: 96%; /* respsonsive width */
+}

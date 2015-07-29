@@ -1,0 +1,200 @@
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#qualification').multiselect({
+            includeSelectAllOption: true,
+            enableFiltering: true
+        });
+		 $('#skills').multiselect({
+            includeSelectAllOption: true,
+            enableFiltering: true
+        });
+    });
+</script>
+
+<div class="container">
+	<h3 class="text-muted">Job Announce Form</h3>
+
+	<div class="col-sm-11">
+		<form id="loginForm" method="post" action="submitForm.php" class="form-horizontal" role="form">
+			<h4 class="text-muted" align="center" style="margin-top:20px;margin-bottom:20px;"> Details </h4>
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="mode">Mode:</label>
+				<div class="col-sm-3">
+					<label class="radio-inline"><input type="radio" name="mode" value="option1">On Campus</label>
+					<label class="radio-inline"><input type="radio" name="mode" value="option2">Off campus</label>
+				</div>
+			
+				<label class="control-label col-sm-1" for="dob">Domain:</label>
+				<div class="col-sm-3">
+					<select name="domain" class="form-control" id="domain">
+						<option>Select domain</option>
+						<option>Information Technology</option>
+						<option>Manufacturing</option>
+						<option>Consultancy</option>
+						<option>Chemical/Bio Tech/FMCG</option>
+						<option>Automotive</option>
+					</select>
+				</div>
+				
+				<label class="control-label col-sm-1" for="dob">Place :</label>
+				<div class="col-sm-2">
+					<select name="place" class="form-control" id="place">
+						<option>Sonpur, Bihar</option>
+						<option>Patna, Bihar</option>
+						<option>Mumbai</option>
+						<option>Delhi</option>
+						<option>Hyderabad</option>
+						<option>Lucknow</option>
+					</select>
+				</div>
+				
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="lastDay">Last date to apply:</label>
+				<div class="col-sm-2">
+					<select name="lastDay" class="form-control" id="lastDay" required>
+						<option class="placeholder" selected disabled value="">Day</option>
+						<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+						<option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option>
+						<option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option>
+						<option>18</option><option>19</option><option>20</option><option>21</option><option>22</option><option>23</option>
+						<option>24</option><option>25</option><option>26</option><option>27</option><option>28</option><option>29</option>
+						</option><option>30</option><option>31</option>
+					</select>
+				</div>
+				<div class="col-sm-2">
+					<select name="lastMonth" class="form-control" id="lastMonth">
+						<option class="placeholder" selected disabled value="">Month</option><option>January</option><option>February</option><option>March</option>
+						<option>April</option><option>May</option><option>June</option><option>July</option>
+						<option>August</option><option>September</option><option>October</option><option>November</option><option>December</option>
+					</select>
+				</div>
+				<div class="col-sm-2">
+					<select name="lastYear" class="form-control" id="lastYear">
+						<option class="placeholder" selected disabled value="">Year</option><option>1990</option><option>1991</option><option>1992</option>
+						<option>2015</option><option>2016</option><option>2017</option><option>2018</option>
+						<option>2019</option><option>2020</option><option>2021</option><option>2022</option>
+						<option>2023</option><option>2024</option><option>2025</option><option>2026</option>
+						<option>2027</option><option>2028</option><option>2029</option><option>2030</option>
+					</select>
+				</div>
+				
+				<label class="control-label col-sm-2" for="vacancy"># of vacancy:</label>
+				<div class="col-sm-2">
+					<select name="vacancy" class="form-control" id="vacancy" required>
+						<option class="placeholder" selected disabled value="">#</option>
+						<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+						<option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option>
+						<option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option>
+					</select>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="tentativeMonth">Tentative start:</label>
+				<div class="col-sm-2">
+					<select name="tentativeMonth" class="form-control" id="tentativeMonth">
+						<option class="placeholder" selected disabled value="">Month</option><option>January</option><option>February</option><option>March</option>
+						<option>April</option><option>May</option><option>June</option><option>July</option>
+						<option>August</option><option>September</option><option>October</option><option>November</option><option>December</option>
+					</select>
+				</div>
+				<div class="col-sm-2">
+					<select name="tentativeMonth" class="form-control" id="tentativeYear">
+						<option class="placeholder" selected disabled value="">Year</option><option>1990</option><option>1991</option><option>1992</option>
+						<option>2015</option><option>2016</option><option>2017</option><option>2018</option>
+						<option>2019</option><option>2020</option><option>2021</option><option>2022</option>
+						<option>2023</option><option>2024</option><option>2025</option><option>2026</option>
+						<option>2027</option><option>2028</option><option>2029</option><option>2030</option>
+					</select>
+				</div>
+				<label class="control-label col-sm-2" for="package">Compensation:</label>
+				<div class="col-sm-4">
+					<input name="package" type="text" class="form-control" id="coordinator" placeholder="Enter approved compensation">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="discription">Resposibilities:</label>
+				<div class="col-sm-10">
+					<textarea name="Resposibilities"class="form-control" rows="5"></textarea>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="qualification">Qualifications:</label>
+				<div class="col-sm-2">
+					<select id="qualification" name="qualification" multiple="multiple">
+						<option value="1">B. Tech</option>
+						<option value="2">B.Tech + M.Tech</option>
+						<option value="3">B.Sc</option>
+						<option value="4">5 Yrs. Ing. MSc</option>
+						<option value="5">M.Tech</option>
+						<option value="6">M.S</option>
+						<option value="7">PhD</option>
+					</select>
+				</div>
+				<label class="control-label col-sm-1" for="skills">Skills:</label>
+				<div class="col-sm-2">
+					<select id="skills" name="skills" multiple="multiple">
+						<option value="1">C/C++</option>
+						<option value="2">Python</option>
+						<option value="3">SciLab</option>
+						<option value="4">Django</option>
+						<option value="5">PHP</option>
+						<option value="6">MySQL</option>
+						<option value="7">Java Script</option>
+						<option value="8">AutoCAD/SolidWorks/FreeCAD</option>
+						<option value="9">ANSYS/OpenFOAM</option>
+					</select>
+				</div>
+				
+			</div>
+			
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="discription">Other details:</label>
+				<div class="col-sm-10">
+					<textarea name="otherDetails"class="form-control" rows="5"></textarea>
+				</div>
+			</div>
+			
+			<h4 class="text-muted" style="margin-top:40px;" align="center"> Approving authority </h4>
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="issuer">Issuer's ID:</label>
+				<div class="col-sm-3">
+					<div class="input-group">
+						<input name="issuer" type="text" class="form-control" id="issuer" placeholder="Enter approver's ID #">
+						<span class="input-group-btn">
+							<button type="button" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+						</span>
+					</div>
+				</div>
+				<div class="col-sm-3">
+					<p id="issuerName" class="text-muted"> A. Bcde </p>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="coordinator">Co-ordinator's ID:</label>
+				<div class="col-sm-3">
+					<div class="input-group">
+						<input name="coordinator" type="text" class="form-control" id="coordinator" placeholder="Enter Co-ordinator's ID #">
+						<span class="input-group-btn">
+							<button type="button" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+						</span>
+					</div>
+				</div>
+				<div class="col-sm-3">
+					<p id="issuerName" class="text-muted"> A. Bcde </p> 
+				</div>
+			</div>
+			
+			<div class="form-group">        
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="button" class="btn btn-success">Submit</button>
+				</div>
+			</div>
+		
+		</form>
+
+	</div>
+	
+	
+</div>
