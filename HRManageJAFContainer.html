@@ -44,6 +44,24 @@ $(document).ready(function() {
             tableBody.append('<tr class="search-sf"><td class="text-muted" colspan="6">No entries found.</td></tr>');
         }
     });
+	
+	$('#docViewereBackBtn').hide();
+	$('#docViewer').hide();
+	
+	$('#viewResume').click(function() {
+		$('#docViewereBackBtn').show();
+		$('#manageOpeningTabs').hide();
+		$('#manageModelLabel').hide();
+		$('#docViewer').show();
+		
+	});
+	
+	$('#docViewereBackBtn').click(function() {
+		$('#manageOpeningTabs').show();
+		$('#docViewereBackBtn').hide();
+		$('#manageModelLabel').show();
+		$('#docViewer').hide();
+	});
 });
 </script>
 <script> 
@@ -54,7 +72,11 @@ $(document).ready(function() {
     });
 </script>
 
-<div class="container">
+<div id="docViewer">
+	<iframe width="100%" height="800px" src="example.pdf"></iframe>
+</div>
+
+<div class="container" id="manageOpeningTabs">
     <ul class="nav nav-tabs">
 		<li class="active"><a data-toggle="tab" href="#recieved">All recieved</a></li>
 		<li ><a data-toggle="tab" href="#screening">Screening</a></li>
@@ -103,7 +125,7 @@ $(document).ready(function() {
 							<td>0</td>
 							<td>80</td>
 							<td>B. Tech</td>
-							<td><a href="http://google.com"><span class="btn label label-info"><i class="glyphicon glyphicon-file"></i></span></a></td>
+							<td><span class="btn label label-info" id="viewResume"><i class="glyphicon glyphicon-file"></i></span></td>
 							<td>
 								<div class="dropdown">
 									<button class="btn label label-success dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -190,6 +212,7 @@ $(document).ready(function() {
 	
 		</div>
 		<div id="screening" class="tab-pane fade">
+			
 			<div id="HRAnnounceOpeningsContainer"></div>
     	</div>
 		<div id="interview" class="tab-pane fade">
