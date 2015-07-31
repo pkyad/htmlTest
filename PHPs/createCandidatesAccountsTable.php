@@ -40,4 +40,7 @@ if ($conn->query($sql) === TRUE) {
 }
 
 $conn->close();
+
+header('Location: setup.html');
+exit;
 ?> 

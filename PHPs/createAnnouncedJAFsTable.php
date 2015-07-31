@@ -59,5 +59,7 @@ if ($conn->query($sql) === TRUE) {
 
 mysqli_close($conn);
 
+header('Location: setup.html');
+exit;
 
 ?>

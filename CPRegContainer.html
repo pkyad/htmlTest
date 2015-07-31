@@ -3,7 +3,7 @@
 	<h2>Registration Form</h2>
 
 	<div class="col-sm-11">
-		<form id="loginForm" method="post" action="submitForm.php" class="form-horizontal" role="form">
+		<form id="loginForm" method="post" action="PHPs/registrationSubmit.php" class="form-horizontal" role="form" enctype="multipart/form-data">
 	  
 	  	<!-- name -->
 		  	<div class="form-group">
@@ -11,26 +11,26 @@
 				<div class="col-sm-5">
 					<div class="input-group">
 						<span class="input-group-addon "><span  class="glyphicon glyphicon-user"></span></span>
-						<input name="firstName" type="text" class="form-control" id="name" placeholder="First name">
+						<input name="firstName" type="text" class="form-control" id="firstName" placeholder="First name">
 					</div>
 				</div>
 				<div class="col-sm-5">
-					<input name="lastName" type="text" class="form-control" id="name" placeholder="Last name">
+					<input name="lastName" type="text" class="form-control" id="lastName" placeholder="Last name">
 				</div>
 				
 			</div>
 		
 		
 			<div class="form-group">
-				<label class="control-label col-sm-2" for="dob"> Gender:</label>
+				<label class="control-label col-sm-2" for="gender"> Gender:</label>
 				<div class="col-sm-3">
-					<label class="radio-inline"><input name="dob" type="radio" value="option1">Female</label>
-					<label class="radio-inline"><input name="dob" type="radio" value="option2">Male</label>
+					<label class="radio-inline"><input name="gender" type="radio" value="option1">Female</label>
+					<label class="radio-inline"><input name="gender" type="radio" value="option2">Male</label>
 				</div>
 			
 				<label class="control-label col-sm-1" for="dob">Birthday:</label>
 				<div class="col-sm-2">
-					<select name="dobDay" class="form-control" id="dob" required>
+					<select name="dobDay" class="form-control" id="dobDay">
 						<option class="placeholder" selected disabled value="">Day</option>
 						<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
 						<option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option>
@@ -41,14 +41,14 @@
 					</select>
 				</div>
 				<div class="col-sm-2">
-					<select name="dobMonth" class="form-control" id="dob">
+					<select name="dobMonth" class="form-control" id="dobMonth">
 						<option class="placeholder" selected disabled value="">Month</option><option>January</option><option>February</option><option>March</option>
 						<option>April</option><option>May</option><option>June</option><option>July</option>
 						<option>August</option><option>September</option><option>October</option><option>November</option><option>December</option>
 					</select>
 				</div>
 				<div class="col-sm-2">
-					<select name="dobYear" class="form-control" id="dob">
+					<select name="dobYear" class="form-control" id="dobYear">
 						<option class="placeholder" selected disabled value="">Year</option><option>1990</option><option>1991</option><option>1992</option>
 						<option>1993</option><option>1994</option><option>1995</option><option>1996</option>
 						<option>1997</option><option>1998</option><option>1999</option><option>2000</option>
@@ -87,7 +87,7 @@
 					<input name="department" type="text" class="form-control" id="department" placeholder="Enter department">
 				</div>
 				<div class="col-sm-4">
-					<select name="program" class="form-control" id="dob">
+					<select name="program" class="form-control" id="program">
 						<option>Program</option>
 						<option>4 Yr. B.Tech</option>
 						<option>5 Yr. B.Tech+M.Tech</option>
@@ -172,7 +172,7 @@
 						
 			<div class="form-group">        
 				<div class="col-sm-offset-2 col-sm-10">
-					<button type="button" class="btn btn-success">Submit</button>
+					<input type="Submit" class="btn btn-success" value="Submit"></input>
 				</div>
 			</div>
 		
