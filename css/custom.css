@@ -12,3 +12,7 @@
 .modal-xlg {
     width: 96%; /* respsonsive width */
 }
+
+body {
+    zoom: 75%;
+}
