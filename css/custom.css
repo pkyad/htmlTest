@@ -16,3 +16,13 @@
 body {
     zoom: 50%;
 }
+
+.navbar-default {
+  background-color: #f2f5f4;
+  border-color: #83c4bf;
+}
+
+.i{
+	margin-left:10px;
+	margin-right:10px;
+}

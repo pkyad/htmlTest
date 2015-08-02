@@ -45,20 +45,20 @@ $(document).ready(function() {
         }
     });
 	
-	$('#docViewereBackBtn').hide();
+	$('#docViewerBackBtn').hide();
 	$('#docViewer').hide();
 	
 	$('#viewResume').click(function() {
-		$('#docViewereBackBtn').show();
+		$('#docViewerBackBtn').show();
 		$('#manageOpeningTabs').hide();
 		$('#manageModelLabel').hide();
 		$('#docViewer').show();
 		
 	});
 	
-	$('#docViewereBackBtn').click(function() {
+	$('#docViewerBackBtn').click(function() {
 		$('#manageOpeningTabs').show();
-		$('#docViewereBackBtn').hide();
+		$('#docViewerBackBtn').hide();
 		$('#manageModelLabel').show();
 		$('#docViewer').hide();
 	});
@@ -81,7 +81,8 @@ $(document).ready(function() {
 		<li class="active"><a data-toggle="tab" href="#recieved">All recieved</a></li>
 		<li ><a data-toggle="tab" href="#screening">Screening</a></li>
 		<li><a data-toggle="tab" href="#interview">Interview</a></li>
-    	<li><a data-toggle="tab" href="#onboarding">Onboarding</a></li>		
+    	<li><a data-toggle="tab" href="#onboarding">Onboarding</a></li>
+		<li><a data-toggle="tab" href="#statistics">Statistics</a></li>
   	</ul>
 	
 	<div class="tab-content">
@@ -213,13 +214,16 @@ $(document).ready(function() {
 		</div>
 		<div id="screening" class="tab-pane fade">
 			
-			<div id="HRAnnounceOpeningsContainer"></div>
+			<div id="screening"></div>
     	</div>
 		<div id="interview" class="tab-pane fade">
-			<div id="HRInductionContainer"></div>
+			<div id="interview"></div>
 		</div>
 		<div id="onboarding" class="tab-pane fade">
-			<div id="HREditQuesBank"></div>
+			<div id="onboarding"></div>
+		</div>
+		<div id="statistics" class="tab-pane fade">
+			<div id="statistics"></div>
 		</div>
 	</div>
 	
