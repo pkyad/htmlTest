@@ -1,6 +1,10 @@
 <?php
 echo "going to submit a data set";
 
+
+echo "type: " .$_POST["type"];
+$type = $_POST["type"];
+echo "</br> </br>";
 echo "Designation: " .$_POST["designation"];
 $designation = $_POST["designation"];
 echo "</br> </br>";
@@ -78,8 +82,8 @@ echo "</br> </br>";
 
 require_once('mysqliConnectHR.php');
 
-$sql = "INSERT INTO announcedJAFs (id, status, designation, mode, domain, place, lastDate, numVacancy, tentativeStart, compensation,discription,qualification, skills, otherDetails, announcer, hrcoordinator, approver, coordinator ,regTime)
-VALUES (NULL, 'active', '$designation','$mode','$domain','$place','$lastYear-$lastMonth-$lastDay','$vacancy','$tentativeYear-$tentativeMonth-01','$package','$discription','$qualificationString','$skillsString','$otherDetails','ABC','$hrCoordinator','$approver','$coordinator', NOW())";
+$sql = "INSERT INTO announcedJAFs (id,type, status, designation, mode, domain, place, lastDate, numVacancy, tentativeStart, compensation,discription,qualification, skills, otherDetails, announcer, hrcoordinator, approver, coordinator ,regTime)
+VALUES (NULL, '$type', 'active', '$designation','$mode','$domain','$place','$lastYear-$lastMonth-$lastDay','$vacancy','$tentativeYear-$tentativeMonth-01','$package','$discription','$qualificationString','$skillsString','$otherDetails','ABC','$hrCoordinator','$approver','$coordinator', NOW())";
 
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";

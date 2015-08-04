@@ -77,7 +77,7 @@ $(document).ready(function() {
                             <th>Domain</th>
                             <th>Position</th>
                             <th>Place</th>
-                            <th>Last updated</th>
+                            <th>Closing on</th>
                             <th>...</th>
                         </tr>
                     </thead>
@@ -107,7 +107,7 @@ $row['place'] . '</td><td align="left">' .
 $row['lastDate'] . '</td>';
 
 
-echo '<td><button class="btn label label-default" data-toggle="modal" data-target="#myModal3">Manage</button></td>
+echo '<td><button class="btn label label-info" data-toggle="modal" data-target="#myModal3">Manage</button></td>
 							
 							<div class="modal bs-example-modal-lg" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="manageModelLabel">
 							  <div class="modal-dialog modal-xlg" role="document">
@@ -116,7 +116,7 @@ echo '<td><button class="btn label label-default" data-toggle="modal" data-targe
 									
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 									<h4 class="modal-title" id="manageModelLabel">Manage JAF # 20163</h4>
-									<button class="btn btn-default" id="docViewereBackBtn" type="button">Back</button>
+									<button class="btn btn-default" id="docViewerBackBtn" type="button">Back</button>
 								  </div>
 								  <div class="modal-body">
 									<div id="HRManageJAFContainer"></div>

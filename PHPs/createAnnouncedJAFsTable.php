@@ -29,6 +29,7 @@ if ($conn->query($sql) === TRUE) {
 // sql to create table
 $sql = "CREATE TABLE announcedJAFs (
 id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+type VARCHAR(15) NOT NULL,
 status ENUM('active', 'inactive') NOT NULL,
 designation VARCHAR(100) NOT NULL,
 mode ENUM('oncampus', 'offcampus') NOT NULL,

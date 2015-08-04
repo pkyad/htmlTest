@@ -21,22 +21,33 @@
 			
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="designation">Designation:</label>
-				<div class="col-sm-10">
+				<div class="col-sm-6">
 					<input name="designation" type="text" class="form-control" id="designation" placeholder="Enter name of the position vacant" required>
+				</div>
+				<label class="control-label col-sm-1" for="type">Service:</label>
+				<div class="col-sm-3">
+					<select name="type" class="form-control" id="type" required>
+						<option selected disabled value="">Select type</option>
+						<option>Full time</option>
+						<option>Internship</option>
+						<option>Short term</option>
+						<option>Daily basis</option>
+						<option>Hourly basis</option>
+					</select>
 				</div>
 			</div>
 			
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="mode">Mode:</label>
 				<div class="col-sm-3">
-					<label class="radio-inline"><input type="radio" name="mode" value="oncampus">On Campus</label>
+					<label class="radio-inline"><input type="radio" name="mode" value="oncampus" required>On Campus</label>
 					<label class="radio-inline"><input type="radio" name="mode" value="offcampus">Off campus</label>
 				</div>
 			
 				<label class="control-label col-sm-1" for="dob">Domain:</label>
 				<div class="col-sm-3">
-					<select name="domain" class="form-control" id="domain">
-						<option>Select domain</option>
+					<select name="domain" class="form-control" id="domain" required>
+						<option selected disabled value="">Select domain</option>
 						<option>Information Technology</option>
 						<option>Manufacturing</option>
 						<option>Consultancy</option>
@@ -47,7 +58,8 @@
 				
 				<label class="control-label col-sm-1" for="place">Place :</label>
 				<div class="col-sm-2">
-					<select name="place" class="form-control" id="place">
+					<select name="place" class="form-control" id="place" required>
+						<option selected disabled value="">Location</option>
 						<option>Sonpur, Bihar</option>
 						<option>Patna, Bihar</option>
 						<option>Mumbai</option>
@@ -72,15 +84,15 @@
 					</select>
 				</div>
 				<div class="col-sm-2">
-					<select name="lastMonth" class="form-control" id="lastMonth">
+					<select name="lastMonth" class="form-control" id="lastMonth" required>
 						<option class="placeholder" selected disabled value="">Month</option><option value="1">January</option><option value="2">February</option><option value="3">March</option>
 						<option value="4">April</option><option value="5">May</option><option value="6">June</option><option value="7">July</option>
 						<option value="8">August</option><option value="9">September</option><option value="10">October</option><option value="11">November</option><option value="12">December</option>
 					</select>
 				</div>
 				<div class="col-sm-2">
-					<select name="lastYear" class="form-control" id="lastYear">
-						<option class="placeholder" selected disabled value="">Year</option><option>1990</option><option>1991</option><option>1992</option>
+					<select name="lastYear" class="form-control" id="lastYear" required>
+						<option class="placeholder" selected disabled value="">Year</option>
 						<option>2015</option><option>2016</option><option>2017</option><option>2018</option>
 						<option>2019</option><option>2020</option><option>2021</option><option>2022</option>
 						<option>2023</option><option>2024</option><option>2025</option><option>2026</option>
@@ -102,15 +114,15 @@
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="tentativeMonth">Tentative start:</label>
 				<div class="col-sm-2">
-					<select name="tentativeMonth" class="form-control" id="tentativeMonth">
+					<select name="tentativeMonth" class="form-control" id="tentativeMonth" required>
 						<option class="placeholder" selected disabled value="">Month</option><option value="1">January</option><option value="2">February</option><option value="3">March</option>
 						<option value="4">April</option><option value="5">May</option><option value="6">June</option><option value="7">July</option>
 						<option value="8">August</option><option value="9">September</option><option value="10">October</option><option value="11">November</option><option value="12">December</option>
 					</select>
 				</div>
 				<div class="col-sm-2">
-					<select name="tentativeYear" class="form-control" id="tentativeYear">
-						<option class="placeholder" selected disabled value="">Year</option><option>1990</option><option>1991</option><option>1992</option>
+					<select name="tentativeYear" class="form-control" id="tentativeYear" required>
+						<option class="placeholder" selected disabled value="">Year</option>
 						<option>2015</option><option>2016</option><option>2017</option><option>2018</option>
 						<option>2019</option><option>2020</option><option>2021</option><option>2022</option>
 						<option>2023</option><option>2024</option><option>2025</option><option>2026</option>
@@ -119,19 +131,19 @@
 				</div>
 				<label class="control-label col-sm-2" for="package">Compensation:</label>
 				<div class="col-sm-4">
-					<input name="package" type="text" class="form-control" id="package" placeholder="Enter approved compensation">
+					<input name="package" type="text" class="form-control" id="package" placeholder="Enter approved compensation" required>
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="discription">Resposibilities:</label>
 				<div class="col-sm-10">
-					<textarea name="discription"class="form-control" id="discription"rows="4"></textarea>
+					<textarea name="discription"class="form-control" id="discription"rows="4" placeholder="Write responsibilities and work details" required></textarea>
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="control-label col-sm-2" for="qualification">Qualifications:</label>
+				<label class="control-label col-sm-2" for="qualification" required>Qualifications:</label>
 				<div class="col-sm-4">
-					<select id="qualification" name="qualification[]" multiple="multiple">
+					<select id="qualification" name="qualification[]" multiple="multiple" required>
 						<option>B. Tech</option>
 						<option>B.Tech + M.Tech</option>
 						<option>B.Sc</option>
@@ -143,7 +155,7 @@
 				</div>
 				<label class="control-label col-sm-1" for="skills">Skills:</label>
 				<div class="col-sm-5">
-					<select id="skills" name="skills[]" multiple="multiple">
+					<select id="skills" name="skills[]" multiple="multiple" required>
 						<option>C/C++</option>
 						<option>Python</option>
 						<option>SciLab</option>
@@ -161,7 +173,7 @@
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="otherDetails">Other details:</label>
 				<div class="col-sm-10">
-					<textarea name="otherDetails"class="form-control" id="otherDetails" rows="5"></textarea>
+					<textarea name="otherDetails"class="form-control" id="otherDetails" rows="5" placeholder="Write any other details such as HR benefits etc." required></textarea>
 				</div>
 			</div>
 			
@@ -170,7 +182,7 @@
 				<label class="control-label col-sm-2" for="approver">Approver's ID:</label>
 				<div class="col-sm-3">
 					<div class="input-group">
-						<input name="approver" type="text" class="form-control" id="approver" placeholder="Enter approver's ID #">
+						<input name="approver" type="text" class="form-control" id="approver" placeholder="Enter approver's ID #" required>
 						<span class="input-group-btn">
 							<button type="button" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
 						</span>
@@ -184,7 +196,7 @@
 				<label class="control-label col-sm-2" for="coordinator">Co-ordinator's ID:</label>
 				<div class="col-sm-3">
 					<div class="input-group">
-						<input name="coordinator" type="text" class="form-control" id="coordinator" placeholder="Enter Co-ordinator's ID #">
+						<input name="coordinator" type="text" class="form-control" id="coordinator" placeholder="Enter Co-ordinator's ID #" required>
 						<span class="input-group-btn">
 							<button type="button" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
 						</span>
@@ -199,7 +211,7 @@
 				<label class="control-label col-sm-2" for="hrCoordinator">HR Coordinator's ID:</label>
 				<div class="col-sm-3">
 					<div class="input-group">
-						<input name="hrCoordinator" type="text" class="form-control" id="hrCoordinator" placeholder="HR coordinator's ID #">
+						<input name="hrCoordinator" type="text" class="form-control" id="hrCoordinator" placeholder="HR coordinator's ID #" required>
 						<span class="input-group-btn">
 							<button type="button" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
 						</span>
@@ -212,7 +224,7 @@
 			
 			<div class="form-group">        
 				<div class="col-sm-offset-2 col-sm-10">
-					<input type="submit" class="btn btn-success" value="Submit">
+					<input type="submit" class="btn btn-success" value="Submit" required>
 				</div>
 			</div>
 		

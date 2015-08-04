@@ -70,14 +70,14 @@ $(document).ready(function() {
             </form>
         </div>
         <div class="col-md-9">
-         <table class="table table-list-search">
+        	<table class="table table-list-search">
                     <thead>
                         <tr>
                             <th>JAF ID</th>
                             <th>Domain</th>
                             <th>Position</th>
                             <th>Place</th>
-                            <th>Last updated</th>
+                            <th>Closing on</th>
                             <th>...</th>
                         </tr>
                     </thead>
@@ -85,58 +85,58 @@ $(document).ready(function() {
                         <tr>
                         
                         <?php
-                        require_once('PHPs/mysqliConnectHR.php');
-                        // Create a query for the database
-$query = "SELECT id, domain,designation, place, lastDate FROM announcedJAFs";
-
-// Get a response from the database by sending the connection
-// and the query
-$response = @mysqli_query($conn, $query);
-
-// If the query executed properly proceed
-if($response){
-
-
-while($row = mysqli_fetch_array($response)){
-       
-echo '<tr><td align="left">' . 
-$row['id'] . '</td><td align="left">' . 
-$row['domain'] . '</td><td align="left">' .
-$row['designation'] . '</td><td align="left">' .
-$row['place'] . '</td><td align="left">' .
-$row['lastDate'] . '</td>';
-
-
-echo '<td><button class="btn label label-info" data-toggle="modal" data-target="#myModal3">Manage</button></td>
-							
-							<div class="modal bs-example-modal-lg" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="manageModelLabel">
-							  <div class="modal-dialog modal-xlg" role="document">
-								<div class="modal-content">
-								  <div class="modal-header">
+	                        require_once('PHPs/mysqliConnectHR.php');
+	                        // Create a query for the database
+									$query = "SELECT id, domain,designation, place, lastDate FROM announcedJAFs";
 									
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-									<h4 class="modal-title" id="manageModelLabel">Manage JAF # 20163</h4>
-									<button class="btn btn-default" id="docViewerBackBtn" type="button">Back</button>
-								  </div>
-								  <div class="modal-body">
-									<div id="HRManageJAFContainer"></div>
-								  </div>
-								  <div class="modal-footer">
-									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-								  </div>
-								</div>
-							  </div>
-							</div>
+									// Get a response from the database by sending the connection
+									// and the query
+									$response = @mysqli_query($conn, $query);
+									
+									// If the query executed properly proceed
+									if($response){
+									
+									
+									while($row = mysqli_fetch_array($response)){
+									       
+									echo '<tr><td align="left">' . 
+									$row['id'] . '</td><td align="left">' . 
+									$row['domain'] . '</td><td align="left">' .
+									$row['designation'] . '</td><td align="left">' .
+									$row['place'] . '</td><td align="left">' .
+									$row['lastDate'] . '</td>';
 
-</tr>';
-}
-echo '</table>';
-} else {
-echo "Couldn't issue database query<br />";
-echo mysqli_error($conn);
-}
-// Close connection to the database
-mysqli_close($conn);
+
+									echo '<td><button class="btn label label-info" data-toggle="modal" data-target="#myModal3">Manage</button></td>
+																
+																<div class="modal bs-example-modal-lg" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="manageModelLabel">
+																  <div class="modal-dialog modal-xlg" role="document">
+																	<div class="modal-content">
+																	  <div class="modal-header">
+																		
+																		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+																		<h4 class="modal-title" id="manageModelLabel">Manage JAF # 20163</h4>
+																		<button class="btn btn-default" id="docViewerBackBtn" type="button">Back</button>
+																	  </div>
+																	  <div class="modal-body">
+																		<div id="HRManageJAFContainer"></div>
+																	  </div>
+																	  <div class="modal-footer">
+																		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+																	  </div>
+																	</div>
+																  </div>
+																</div>
+									
+									</tr>';
+									}
+									echo '</table>';
+									} else {
+									echo "Couldn't issue database query<br />";
+									echo mysqli_error($conn);
+									}
+									// Close connection to the database
+									mysqli_close($conn);
                    
                         ?>
         </div>
