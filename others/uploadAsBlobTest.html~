@@ -1,0 +1,31 @@
+<?php
+if(count($_FILES) > 0) {
+if(is_uploaded_file($_FILES['userImage']['tmp_name'])) {
+	mysql_connect("localhost", "root", "janhvi");
+	mysql_select_db ("candidatesDb");
+	
+	
+	$imgData =addslashes(file_get_contents($_FILES['userImage']['tmp_name']));
+	$imageProperties = filetype($_FILES['userImage']['tmp_name']);
+	
+	$sql = "INSERT INTO uploads(imageType ,imageData, imageName, imageSize)
+	VALUES('$imageProperties', '{$imgData}', 'image', 5)";
+	$current_id = mysql_query($sql) or die("<b>Error:</b> Problem on Image Insert<br/>" . mysql_error());
+}
+}
+?>
+
+<HTML>
+<HEAD>
+<TITLE>Upload Image to MySQL BLOB</TITLE>
+<link href="imageStyles.css" rel="stylesheet" type="text/css" />
+</HEAD>
+<BODY>
+<form name="frmImage" enctype="multipart/form-data" action="" method="post">
+<label>Upload Image File:</label><br/>
+<input name="userImage" type="file"/>
+<input type="submit" value="Submit"/>
+</form>
+</div>
+</BODY>
+</HTML>

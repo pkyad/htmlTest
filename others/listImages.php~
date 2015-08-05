@@ -1,0 +1,23 @@
+<?php
+    $conn = mysql_connect("localhost", "root", "janhvi");
+    mysql_select_db("candidatesDb");
+    $sql = "SELECT id FROM uploads ORDER BY id DESC"; 
+    $result = mysql_query($sql);
+?>
+<HTML>
+<HEAD>
+<TITLE>List BLOB Images</TITLE>
+
+</HEAD>
+<BODY>
+<?php
+	while($row = mysql_fetch_array($result)) {
+	?>
+		<img src="imageView.php?id<?php echo $row['id']; ?>" /><br/>
+	
+<?php		
+	}
+    mysql_close($conn);
+?>
+</BODY>
+</HTML>

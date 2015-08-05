@@ -1,0 +1,6 @@
+<?
+  $dbhost           =             “localhost”; // server host name
+  $dbusr            =              “root”; // mysql username to connect
+  $dbpass           =             “janhvi”; //password
+  $dbname           =            ”candidatesDb”; //database name to select to
+?>

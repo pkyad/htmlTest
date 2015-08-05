@@ -90,7 +90,8 @@ $(document).ready(function() {
 									
 									
 									while($row = mysqli_fetch_array($response)){
-									       
+									$quali = explode('","', $row['qualification']);
+									$skills = explode('","', $row['skills']);
 									echo '<tr>
 									<td align="left">' . $row['id'] . '</td>
 									<td align="left">' . $row['domain'] . '</td>
@@ -102,7 +103,7 @@ $(document).ready(function() {
 									echo '<td><span class="btn label label-info" data-toggle="modal" data-target="#modal'.$row['id'].'">Info</span></td>
 																
 										<div class="modal fade" id="modal'.$row['id'].'" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-										  <div class="modal-dialog" role="document">
+										  <div class="modal-dialog modal-xlg" role="document">
 											<div class="modal-content">
 											  <div class="modal-header">
 												<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -116,15 +117,20 @@ $(document).ready(function() {
 												</br>
 												<p><strong> Responsibilities : </strong> ' .$row['discription'] .'</p>
 												
-												<ul> <h4>Educational Requirements</h4>
-													<li>'.$row['qualification'].'</li>
-												</ul>
-												<ul> <h4>Software/Programming skills desired</h4>
-													<li>'.$row['skills'].'</li>
-												</ul>
-												<ul> <h4>Other details</h4>
-													<li>'.$row['otherDetails'].'</li>
-												</ul>
+												<ul> <h4>Educational qualification</h4>';
+												
+												foreach($quali as $i=>$key){
+												echo '<li>'.str_replace('"]', '', str_replace('["', '', $key)).'</li>';
+												}
+												
+												echo ' </ul>
+												<ul> <h4>Software/Programming skills desired</h4>';
+												
+												foreach($skills as $i=>$key){
+												echo '<li>'.str_replace('"]', '', str_replace('["', '', $key)).'</li>';
+												}
+												echo '</ul>
+												<ul> <h4>Other details</h4>'.$row['otherDetails'].'</ul>
 											  </div>
 											  <div class="modal-footer">
 												<p align="justify"><strong> How to apply : </strong> To apply, register yourself as a candidate and then login to a personalised portal where
