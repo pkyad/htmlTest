@@ -11,42 +11,53 @@
       <a class="navbar-brand" href="#">
         <img height="100%" alt="Brand" src="images/logo.svg">
       </a>
-      <div class="navbar-brand" >Brand&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;<small>Human Resources</small></div>
+      <div class="navbar-brand" >HR&nbsp;&nbsp;</div>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       
+		<ul class="nav navbar-nav">
+			<li><a data-toggle="tab" href="#dashboard"><i class="fa fa-home"></i>&nbsp;&nbsp;Dashboard</a></li>
+			<li><a data-toggle="tab" href="#admin"><i class="fa fa-user"></i>&nbsp;&nbsp;Admin</a></li>
+			<li><a data-toggle="tab" href="#support"><i class="fa fa-phone"></i>&nbsp;&nbsp;Support</a></li>
+			<li><a data-toggle="tab" href="#payroll"><i class="fa fa-money"></i>&nbsp;&nbsp;Payroll</a></li>
+			<li><a data-toggle="tab" href="#teamManagement"><i class="fa fa-users"></i>&nbsp;&nbsp;TM</a></li>
+			<li><a data-toggle="tab" href="#elm"><i class="fa fa-book"></i>&nbsp;&nbsp;ELM</a></li>
+			<li><a data-toggle="tab" href="#dms"><i class="fa fa-file-text-o"></i>&nbsp;&nbsp;DMS</a></li>
+			<li class="active"><a data-toggle="tab" href="#recruitment"><i class="fa fa-graduation-cap"></i>&nbsp;&nbsp;Recruitment</a></li>
+		</ul>
+	  
 
-      <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mr. David Lee &nbsp;<span class="glyphicon glyphicon-chevron-down"></span></a>
-          <ul class="dropdown-menu">
-			<li><img class="img-responsive" height="200px" alt="profile-pic" src="images/user.jpg"></li>
-			<li><a href="#" style="text-align:center;">David@brand.com</br><small>(HR Associate)</small></a></li>
-			<li role="separator" class="divider"></li>
-			<li><a href="#" style="text-align:center;"><i class="fa fa-envelope-o"></i>&nbsp;&nbsp;Messages&nbsp;&nbsp;<span class="label label-success">5</span></a></li>
-			<li><a href="#" style="text-align:center;"><i class="fa fa-flag-o"></i>&nbsp;&nbsp;Notifications&nbsp;&nbsp;<span class="label label-warning">1</span></a></li>
+		<ul class="nav navbar-nav navbar-right">
+			<li class="dropdown">
+			  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mr. David Lee &nbsp;<span class="glyphicon glyphicon-chevron-down"></span></a>
+			  <ul class="dropdown-menu">
+				<li><img class="img-responsive" height="200px" alt="profile-pic" src="images/user.jpg"></li>
+				<li><a href="#" style="text-align:center;">David@brand.com</br><small>(HR Associate)</small></a></li>
+				<li role="separator" class="divider"></li>
+				<li><a href="#" style="text-align:center;"><i class="fa fa-envelope-o"></i>&nbsp;&nbsp;Messages&nbsp;&nbsp;<span class="label label-success">5</span></a></li>
+				<li><a href="#" style="text-align:center;"><i class="fa fa-flag-o"></i>&nbsp;&nbsp;Notifications&nbsp;&nbsp;<span class="label label-warning">1</span></a></li>
 
-			<li role="separator" class="divider"></li>
-			<li><a href="#"><i class="fa fa-sign-out"></i>&nbsp;&nbsp;Logout</a></li>
-			<li role="separator" class="divider"></li>
-			<li><a href="#"><i class="fa fa-question"></i>&nbsp;&nbsp;&nbsp;Help</a></li>
-            <li><a href="#">&nbsp;<i class="fa fa-info"></i>&nbsp;&nbsp;&nbsp;About</a></li>
-          </ul>
-        </li>
-      </ul>
-      <form class="navbar-form navbar-right" role="search">
-        <div class="form-group">
-          <div class="input-group">
-              <!-- USE TWITTER TYPEAHEAD JSON WITH API TO SEARCH -->
-              <input type="text" class="form-control" placeholder="Search">
-              <span class="input-group-btn">
-                  <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
-              </span>
-          </div>
-        </div>
-      </form>
+				<li role="separator" class="divider"></li>
+				<li><a href="#"><i class="fa fa-sign-out"></i>&nbsp;&nbsp;Logout</a></li>
+				<li role="separator" class="divider"></li>
+				<li><a href="#"><i class="fa fa-question"></i>&nbsp;&nbsp;&nbsp;Help</a></li>
+				<li><a href="#">&nbsp;<i class="fa fa-info"></i>&nbsp;&nbsp;&nbsp;About</a></li>
+			  </ul>
+			</li>
+		</ul>
+		<form class="navbar-form navbar-right" role="search">
+			<div class="form-group">
+			  <div class="input-group">
+				  <!-- USE TWITTER TYPEAHEAD JSON WITH API TO SEARCH -->
+				  <input type="text" class="form-control" placeholder="Search">
+				  <span class="input-group-btn">
+					  <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+				  </span>
+			  </div>
+			</div>
+		</form>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
