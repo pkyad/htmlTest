@@ -38,8 +38,32 @@ body {
 .nav-sidebar > li > a:hover {
 	background-color: #71b7c1;
 }
-/* Sidebar 2 navigation */
 
+/* Sidebar navigation on dashboard*/
+.nav-sidebarDashboard {
+  background-color: #f5f5f5;
+  position: fixed; 
+  width:7.5%;
+  height:100%;
+  /*padding-bottom: 20px; */
+}
+.nav-sidebarDashboard > li > a {
+	padding-right: 20px;
+	padding-left: 20px;
+	color:#71b7c1;	
+	align:justify;
+}
+.nav-sidebarDashboard > .active > a {
+  color: #fff;
+  background-color: #71b7c1;
+}
+
+.nav-sidebarDashboard > li > a:hover {
+	background-color: #71b7c1;
+	color: #fff;
+}
+
+/* for the side panel accordion */
 
 .panel-heading:hover{
 	cursor:pointer;
@@ -57,12 +81,63 @@ body {
 }
 
 
+/* Custom navbar styles */
+.navbar-default {
+  background-color: #71b7c1;
+  border-color: #509099;
+}
+.navbar-default .navbar-brand {
+  color: #ffffff;
+}
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+  color: #ffffff;
+}
+.navbar-default .navbar-text {
+  color: #ffffff;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #ffffff;
+}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+  color: #ffffff;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+  color: #ffffff;
+  background-color: #509099;
+}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+  color: #ffffff;
+  background-color: #509099;
+}
+.navbar-default .navbar-toggle {
+  border-color: #509099;
+}
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+  background-color: #509099;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #ffffff;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+  border-color: #ffffff;
+}
+.navbar-default .navbar-link {
+  color: #ffffff;
+}
+.navbar-default .navbar-link:hover {
+  color: #ffffff;
+}
 
-
-
-
-
-
-
-
-
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #ffffff;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #ffffff;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #ffffff;
+    background-color: #509099;
+  }
+}
