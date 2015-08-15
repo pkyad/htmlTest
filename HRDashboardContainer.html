@@ -3,7 +3,6 @@
     $(function(){
     
     });
-
 </script>
 <div class="container" style="width:100%;">
 <div class="row">
@@ -11,20 +10,40 @@
 	<div class="col-sm-2" id="cssmenu">
 	   
 		<ul class="nav nav-sidebar" >
-			  <li class="active"><a data-toggle="tab" href="#id0">Overview</a></li>
-			  <li><a data-toggle="tab" href="#id1">Reports</a></li>
-			  <li><a data-toggle="tab" href="#id2">Analytics</a></li>
-			  <li><a data-toggle="tab" href="#id3">Export</a></li>
-			  <li><a data-toggle="tab" href="#">Nav item</a></li>
-			  <li><a data-toggle="tab" href="#">Nav item again</a></li>
-			  <li><a data-toggle="tab" href="#">One more nav</a></li>
-			  <li><a data-toggle="tab" href="#">Another nav item</a></li>
-			  <li><a data-toggle="tab" href="#">More navigation</a></li>
-			  <li><a data-toggle="tab" href="#">Nav item again</a></li>
-			  <li><a data-toggle="tab" href="#">One more nav</a></li>
-			  <li><a data-toggle="tab" href="#">Another nav item</a></li>
-			  <li><a data-toggle="tab" href="#">Nav item</a></li>
-			  <li><a data-toggle="tab" href="#">Nav item again</a></li>
+			<div class="panel-group" id="accordion">
+				<div class="panel panel-default nav">
+					<div class="panel-heading">
+						<div class="panel-title" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" align="left"><span class="glyphicon glyphicon-folder-close">
+						</span>&nbsp;&nbsp;Home</div>
+					</div>
+					<div id="collapseOne" class="panel-collapse collapse in">
+						<div class="panel-body">
+							<ul class="nav" >
+								<li class="active"><a data-toggle="tab" href="#id0">Announce openings</a></li>
+								<li><a data-toggle="tab" href="#id1">Induction</a></li>
+								<li><a data-toggle="tab" href="#id2">Edit question bank</a></li>
+								<li><a data-toggle="tab" href="#id3">Set question paper</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default nav">
+					<div class="panel-heading">
+						<div class="panel-title" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" align="left"><span class="glyphicon glyphicon-folder-close">
+						</span>&nbsp;&nbsp;Approvals</div>
+					</div>
+					<div id="collapseTwo" class="panel-collapse collapse">
+						<div class="panel-body">
+							<ul class="nav" >
+								<li><a data-toggle="tab" href="#id0">Inbound <span class="label label-success">$ 320</span></a> </li> 
+								<li><a data-toggle="tab" href="#id1">Submitted</a></li>
+								<li><a data-toggle="tab" href="#id2">Create new</a></li>
+								<li><a data-toggle="tab" href="#id3">Approved</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+            </div>
 		</ul>
 	  
 	</div><!--/span-->
@@ -32,7 +51,11 @@
 	<div class="col-sm-10">
 	 <div class="tab-content">
 		<div id="id1" class="tab-pane fade">
-						
+			<ol class="breadcrumb">
+				<li><a href="#">Dashboard</a></li>
+				<li><a href="#">Home</a></li>
+				<li class="active">All candidates</li>
+			</ol>		
 			<?php
 			// Get a connection for the database
 			require_once('PHPs/mysqliConnect.php');

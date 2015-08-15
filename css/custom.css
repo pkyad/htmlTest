@@ -24,6 +24,7 @@ body {
   position: fixed; 
   width:15%;
   height:100%;
+  /*padding-bottom: 20px; */
 }
 .nav-sidebar > li > a {
 	padding-right: 20px;
@@ -37,6 +38,31 @@ body {
 .nav-sidebar > li > a:hover {
 	background-color: #71b7c1;
 }
-.nav-sidebar > li > a:active {
+/* Sidebar 2 navigation */
+
+
+.panel-heading:hover{
+	cursor:pointer;
+	background-color: #71b7c1;
+	
+}
+
+.sidebar-secMenu>li>a:hover{
 	background-color: #71b7c1;
 }
+
+.sidebar-secMenu > .active > a {
+  color: #fff;
+  background-color: #71b7c1;
+}
+
+
+
+
+
+
+
+
+
+
+
