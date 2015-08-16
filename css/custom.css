@@ -7,11 +7,6 @@
 
 
 
-#logo{
-	height: 100%
-
-}
-
 /* for the table panel */
 
 .table-db{
@@ -22,10 +17,13 @@
     width: 96%; /* respsonsive width */
 }
 
-body {
-    zoom: 50%;
+.socialBody {
+  background: url(../images/background.jpg) no-repeat center center fixed;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #eee;
+  height:800px;
 }
-
 
 /* flat sidebar navigation */
 .nav-sidebar {
