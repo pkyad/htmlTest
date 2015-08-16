@@ -1,12 +1,12 @@
 
 <script> 
     $(function(){
-    $("#mail").load("mail.html");
-	$("#im").load("im.html");
-	$("#social").load("social.html");
-	$("#forums").load("forums.html");
-	$("#home").load("dashboardHome.html");
-
+    $("#mailCOntainer").load("mail.html");
+	$("#imContainer").load("im.html");
+	$("#socialContainer").load("social.html");
+	$("#forumsContainer").load("forums.html");
+	$("#homeContainer").load("dashboardHome.html");
+	$("#calenderContainer").load("dashboardCalender.html");
     });
 </script>
 
@@ -14,11 +14,12 @@
 <div class="row">	
 	<div class="col-sm-1" id="cssmenuRecruitment">
 		<ul class="nav nav-sidebarDashboard" >
-			<li class="active"><a data-toggle="tab" href="#home"><i class="fa fa-home fa-5x"></i></a></li>
+			<li class="active"><a data-toggle="tab" href="#home">&nbsp;<i class="fa fa-home fa-5x"></i></a></li>
 			<li ><a data-toggle="tab" href="#mail"><i class="fa fa-envelope-o fa-5x"></i></a></li>
 			<li><a data-toggle="tab" href="#im"><i class="fa fa-weixin fa-5x"></i></a></li>
-			<li><a data-toggle="tab" href="#social"><i class="fa fa-facebook fa-5x"></i></a></li>
+			<li><a data-toggle="tab" href="#social">&nbsp;&nbsp;&nbsp;<i class="fa fa-facebook fa-5x"></i></a></li>
 			<li><a data-toggle="tab" href="#forums"><i class="fa fa-newspaper-o fa-5x"></i></a></li>
+			<li><a data-toggle="tab" href="#calender">&nbsp;<i class="fa fa-calendar fa-5x"></i></a></li>
 		</ul>
 	</div>
 	<div class="tab-content col-sm-11">
@@ -36,6 +37,9 @@
 		</div>
 		<div id="forums" class="tab-pane fade">
 			<div id="forumsContainer"></div>
+		</div>
+		<div id="calender" class="tab-pane fade">
+			<div id="calenderContainer"></div>
 		</div>
 
 	</div>
