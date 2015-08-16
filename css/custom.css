@@ -29,6 +29,7 @@
   position: fixed; 
   width:15%;
   height:100%;
+  margin-left:-20px;
 }
 .nav-sidebar > li > a {
 	padding-right: 20px;
@@ -44,13 +45,27 @@
 	color: #fff;
 }
 
+/* flat navbar for the whats new notifications */
+
+.nav-sidebarWhatsnew {
+  background-color: var(--verticalNavbarBg);
+  position: fixed; 
+  width:15%;
+  height:100%;
+}
+.nav-sidebarWhatsnew > li > a {
+	padding-right: 20px;
+	padding-left: 20px;
+}
+
+
 /* flat sidebar navigation on dashboard*/
 .nav-sidebarDashboard {
   background-color: var(--verticalNavbarBg);
   position: fixed; 
   width:8%;
+  margin-left:-20px;
   height:100%;
-  /*padding-bottom: 20px; */
 }
 .nav-sidebarDashboard > li > a {
 	padding-right: 20px;
@@ -69,7 +84,26 @@
 
 
 /* for the side panel accordion */
+.nav-sidebarAccordion {
+  background-color: var(--verticalNavbarBg);
+  position: fixed; 
+  width:15%;
+  height:100%;
+}
+.nav-sidebarAccordion > li > a {
+	padding-right: 20px;
+	padding-left: 20px;
+	color:var(--themeMain);
+}
+.nav-sidebarAccordion > .active > a {
+  color: #fff;
+  background-color: var(--themeMain);
+}
 
+.nav-sidebarAccordion > li > a:hover, .nav-sidebarAccordion > li >a:focus {
+	background-color: var(--themeMain);
+	color: #fff;
+}
 .panel-heading:hover{
 	cursor:pointer;
 	background-color: var(--themeMain);
