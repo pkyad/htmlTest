@@ -3,6 +3,7 @@
   --verticalNavbarBg: #F5F5F5;
   --themeMain:#59A691 ;
   --headerNavbarHighlight:#488675;
+  --flatAccordionLevelThree: #509582;
 }
 
 /* for the table panel */
@@ -26,7 +27,7 @@
 /* flat sidebar navigation */
 .nav-sidebar {
   background-color: var(--verticalNavbarBg);
-  position: fixed; 
+  position: fixed;
   width:15%;
   height:100%;
   margin-left:-20px;
@@ -49,7 +50,7 @@
 
 .nav-sidebarWhatsnew {
   background-color: var(--verticalNavbarBg);
-  position: fixed; 
+  position: fixed;
   width:15%;
   height:100%;
 }
@@ -62,7 +63,7 @@
 /* flat sidebar navigation on dashboard*/
 .nav-sidebarDashboard {
   background-color: var(--verticalNavbarBg);
-  position: fixed; 
+  position: fixed;
   width:8%;
   margin-left:-20px;
   height:100%;
@@ -86,7 +87,7 @@
 /* for the side panel accordion */
 .nav-sidebarAccordion {
   background-color: var(--verticalNavbarBg);
-  position: fixed; 
+  position: fixed;
   width:15%;
   height:100%;
 }
@@ -106,7 +107,7 @@
 .panel-heading:hover{
 	cursor:pointer;
 	background-color: var(--themeMain);
-	
+
 }
 
 .sidebar-secMenu>li>a:hover{
@@ -133,6 +134,128 @@
     margin-bottom:20px;
 }
 
+/* flat accordion nav bar */
+
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,200);
+#cssmenuAccordion{
+
+}
+#cssmenuAccordion ul,
+#cssmenuAccordion ul li,
+#cssmenuAccordion ul li a {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style: none;
+  line-height: 1;
+  display: block;
+  position: relative;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+#cssmenuAccordion {
+  width: 220px;
+  font-family: Raleway, sans-serif;
+  color: #ffffff;
+}
+#cssmenuAccordion ul ul {
+  display: none;
+}
+#cssmenuAccordion > ul > li.active > ul> li.open >a {
+  display: block;
+  background: var(--headerNavbarHighlight);
+}
+
+#cssmenuAccordion > ul > li.active > ul> li.open >ul> li >a {
+  display: block;
+  background: var(--flatAccordionLevelThree);
+}
+.align-right {
+  float: right;
+}
+#cssmenuAccordion > ul > li > a {
+  padding: 16px 22px;
+  cursor: pointer;
+  z-index: 2;
+  /*font-size: 16px;*/
+  text-decoration: none;
+  color: #ffffff;
+  background: var(--themeMain);
+  -webkit-transition: color .2s ease;
+  -o-transition: color .2s ease;
+  transition: color .2s ease;
+}
+#cssmenuAccordion > ul > li > a:hover {
+  color: #ffffff;
+  background: var(--headerNavbarHighlight);
+}
+#cssmenuAccordion ul > li.has-sub > a:after {
+  position: absolute;
+  right: 26px;
+  top: 19px;
+  z-index: 5;
+  display: block;
+  height: 10px;
+  width: 2px;
+  background: #ffffff;
+  content: "";
+  -webkit-transition: all 0.1s ease-out;
+  -moz-transition: all 0.1s ease-out;
+  -ms-transition: all 0.1s ease-out;
+  -o-transition: all 0.1s ease-out;
+  transition: all 0.1s ease-out;
+}
+#cssmenuAccordion ul > li.has-sub > a:before {
+  position: absolute;
+  right: 22px;
+  top: 23px;
+  display: block;
+  width: 10px;
+  height: 2px;
+  background: #ffffff;
+  content: "";
+  -webkit-transition: all 0.1s ease-out;
+  -moz-transition: all 0.1s ease-out;
+  -ms-transition: all 0.1s ease-out;
+  -o-transition: all 0.1s ease-out;
+  transition: all 0.1s ease-out;
+}
+#cssmenuAccordion ul > li.has-sub.open > a:after,
+#cssmenuAccordion ul > li.has-sub.open > a:before {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+#cssmenuAccordion ul ul li a {
+  padding: 14px 22px;
+  cursor: pointer;
+  z-index: 2;
+/*  font-size: 16px; */
+  text-decoration: none;
+  color: #ffffff;
+  background: var(--headerNavbarHighlight);
+  -webkit-transition: color .2s ease;
+  -o-transition: color .2s ease;
+  transition: color .2s ease;
+}
+#cssmenuAccordion ul ul ul li a {
+  padding-left: 32px;
+}
+#cssmenuAccordion ul ul li a:hover {
+  color: #ffffff;
+}
+#cssmenuAccordion ul ul > li.has-sub > a:after {
+  top: 16px;
+  right: 26px;
+  background:#ffffff;
+}
+#cssmenuAccordion ul ul > li.has-sub > a:before {
+  top: 20px;
+  background: #ffffff;
+}
 
 
 
