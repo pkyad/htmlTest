@@ -15,18 +15,10 @@
     width: 96%; /* respsonsive width */
 }
 
-.socialBody {
-  background: url(../images/background.jpg) no-repeat center center fixed;
-  padding-top: 40px;
-  padding-bottom: 40px;
-  background-color: #eee;
-  height:800px;
-}
-
 /* flat sidebar navigation */
 .nav-sidebar {
   background-color: var(--verticalNavbarBg);
-  position: fixed; 
+  position: fixed;
   width:15%;
   height:100%;
   margin-left:-20px;
@@ -49,7 +41,7 @@
 
 .nav-sidebarWhatsnew {
   background-color: var(--verticalNavbarBg);
-  position: fixed; 
+  position: fixed;
   width:15%;
   height:100%;
 }
@@ -62,7 +54,7 @@
 /* flat sidebar navigation on dashboard*/
 .nav-sidebarDashboard {
   background-color: var(--verticalNavbarBg);
-  position: fixed; 
+  position: fixed;
   width:8%;
   margin-left:-20px;
   height:100%;
@@ -86,7 +78,7 @@
 /* for the side panel accordion */
 .nav-sidebarAccordion {
   background-color: var(--verticalNavbarBg);
-  position: fixed; 
+  position: fixed;
   width:15%;
   height:100%;
 }
@@ -106,7 +98,7 @@
 .panel-heading:hover{
 	cursor:pointer;
 	background-color: var(--themeMain);
-	
+
 }
 
 .sidebar-secMenu>li>a:hover{
