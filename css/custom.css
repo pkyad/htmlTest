@@ -657,7 +657,9 @@ info-box-bordered >.progress-description, .info-box-text {
     box-sizing: border-box;
 }
 
-
+.panel-group .panel{
+  border-radius:0px;  
+}
 
 
 
