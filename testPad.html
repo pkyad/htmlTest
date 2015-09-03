@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Test Pad</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/custom.css">
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap-multiselect.js"></script>
+	<link rel="stylesheet" href="css/bootstrap-multiselect.css" type="text/css"/>
+	<link rel="stylesheet" href="css/font-awesome.min.css" type="text/css"/>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="js/myScript.js"></script>
+	<link rel="stylesheet" href="css/ngularCalender.css" media="screen" title="no title" charset="utf-8">
+
+	</script>
+
+</head>
+
+<body>
+
+	<div ng-app="ngCal" ng-controller="myCtrl">
+
+		Name: <input type="text" ng-model="Name">	Name: {{Name}}
+
+		<div ng-repeat="innerList in names">
+			 list: {{innerList}}; </br>
+		</div>
+		day = {{day}} -------
+		testVar : {{test}}------
+		tempVar : {{temp}} -------
+		Drop year = {{dropYear}} ---
+		Drop month = {{dropMonth}}
+
+		{{calculatedValue}}
+		<br>
+		<br>
+		<hr></hr>
+		<div class="container ngCalenderMain col-md-7 col-md-offset-1">
+			<div class="row">
+				<div class="btn-group col-md-3">
+					<button class="btn btn-success" ng-click="gotoPrev()"> <i class="glyphicon glyphicon-chevron-left"></i> </button>
+					<button class="btn btn-info" ng-click="gotoNext()"> <i class="glyphicon glyphicon-chevron-right"></i></button>
+					<button class="btn btn-default" ng-click="gotoToday()">Today</button>
+				</div>
+				<div class="headerCalender col-md-5">
+					<p>{{dateDisp | date:'MMM yyyy'}} </p>
+				</div>
+				<div class="col-md-4">
+					<div class="col-md-7">
+						<select class="form-control" ng-options="obj.disp for obj in listOfMonths track by obj.val"
+				      ng-model="dropMonth"
+				      ng-change="gotoPerticular()">
+						</select>
+					</div>
+					<div class="col-md-5 pull-right">
+						<select class="form-control" ng-options="obj.disp for obj in listOfYears track by obj.val"
+							ng-model="dropYear"
+							ng-change="gotoPerticular()">
+						</select>
+					</div>
+				</div>
+			</div>
+			<hr></hr>
+			<div class="row">
+				<div class="weekHeader">
+					<div class="weekDay">Sunday</div>
+					<div class="weekDay">Monday</div>
+					<div class="weekDay">Tuesday</div>
+					<div class="weekDay">Wednesday</div>
+					<div class="weekDay">Thursday</div>
+					<div class="weekDay">Friday</div>
+					<div class="weekDay">Saturday</div>
+				</div>
+			</div>
+			<div class="week">
+					<div class="day" ng-repeat="k in range(0,41)" ng-click="showDetails(k)">
+						<div class="dayNumber">
+						{{dates[$index]}}
+						</div>
+					</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="col-md-3 col-sm-6 col-xs-12" >
+				<div class="row bg-yellow">
+					<span class="ngCalenderIcon bg-yellow"><i class="fa fa-calendar"></i></span>
+					<div class="dayDetails">
+						<div class="sideBarDate">{{dateDisp | date : 'dd MMM yyyy'}} </div>
+						{{dayDisp}}
+					</div>
+				</div>
+				<div class="row ngCalEvents bg-aqua">
+					<div id="cssmenuAccordion" class="cssmenuAccordion">
+						<ul class="nav">
+							<li class="has-sub"><a href='#'>Reminders <span class="label label-warning">2</span></a>
+								<ul >
+									<li><a href="#">2:30am: Quick assesment <i class="glyphicon glyphicon-pencil pull-right" ng-click="editItem()"></i><i class="glyphicon glyphicon-trash pull-right" ng-click="deleteItem()" style="margin-right:10px;"></i></a></li>
+									<li>
+											<a>4:30am: Course</a>
+									</li>
+								</ul>
+							</li>
+							<li class='has-sub'><a href='#'>Meetings <span class="label label-danger">5</span></a>
+								<ul class="nav">
+									<li><a href="#">2:30am: Review, R201</a></li>
+									<li><a href="#">4:30am: Orientation, R304</a></li>
+								</ul>
+							</li>
+							<li class="has-sub"><a data-toggle="tab" href='#id41'>To Do</a>
+								<ul class="nav">
+									<li><a href="#"><input type="checkbox" name="vehicle" value="Bike"> I have a bike</a></li>
+									<li><a href="#"><input type="checkbox" name="vehicle" value="Car"> I have a car </a></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div><!-- /.col -->
+		</div>
+	</div>
+</body
+</html>
