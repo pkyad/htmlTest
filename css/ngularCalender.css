@@ -8,6 +8,8 @@
 
 .headerCalender > p{
   text-align: center;
+  font-size: 18px;
+  color: #868383;
 }
  .day{
   display: inline-block;
@@ -26,9 +28,8 @@
   background-color:#cce6e9;
   cursor: pointer;
 }
-.day:active{
-  background-color:#cce6e9;
-  cursor: pointer;
+.dayTypePrev, .dayTypeNext{
+  color: #aaa4a4;
 }
 .week{
   margin-left:2px;
@@ -81,4 +82,13 @@
 }
 .sideBarDate{
   font-size: 25px;
+}
+.todoDone{
+  display: inline-block;
+  margin-left:10px;
+  text-decoration:line-through;
+}
+.taskTitle{
+  display: inline-block;
+  margin-left:10px;
 }
