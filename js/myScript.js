@@ -42,20 +42,18 @@ ngCal.controller('myCtrl', function($scope) {
     var today = new Date(); // current day
     calMonth = today.getMonth();
     calYear = today.getFullYear();
-    calDate.setFullYear(calYear, calMonth, calDate.getDay()+1);
+    calDate.setFullYear(calYear, calMonth, today.getDay()-1);
     $scope.dateDisp = calDate;
     $scope.dates = getDays(calMonth, calYear);
   };
   $scope.gotoNext = function(){
     calMonth +=1;
     calDate.setFullYear(calYear, calMonth-1, 1);
-    $scope.dateDisp = calDate;
     $scope.dates = getDays(calMonth, calYear);
   };
   $scope.gotoPrev = function(){
     calMonth -=1;
     calDate.setFullYear(calYear, calMonth-1, 1);
-    $scope.dateDisp = calDate;
     $scope.dates = getDays(calMonth, calYear);
   };
   $scope.gotoPerticular = function(){
