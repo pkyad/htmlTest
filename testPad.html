@@ -97,31 +97,31 @@
 						<li class="has-sub"><a href='#'>Reminders <span class="label label-warning">2</span></a>
 							<ul class="nav" >
 								<li ng-repeat="remind in listOfReminders" >
-									<a href="#">{{remind.time}} : {{remind.title}}  <i class="glyphicon glyphicon-pencil pull-right" ng-click="editItem(listOfReminders[$index].id, 1)"></i><i class="glyphicon glyphicon-trash pull-right" ng-click="deleteItem(listOfReminders[$index].id , 1)" style="margin-right:10px;"></i></a>
+									<a href="#">{{remind.dayTime}} : {{remind.title}}  <i class="glyphicon glyphicon-pencil pull-right" ng-click="editItem(listOfReminders[$index].id, 1)"></i><i class="glyphicon glyphicon-trash pull-right" ng-click="deleteItem(listOfReminders[$index].id , 1)" style="margin-right:10px;"></i></a>
+								</li>
+								<li>
+									<div class="formInsideAccodrion"><input class="form-control" type="text" ng-model="reminderEditor" ng-enter="addReminder()"></div>
 								</li>
 							</ul>
 						</li>
-						<li class='has-sub'><a href='#'>Meetings <span class="label label-danger">5</span></a>
+						<li class='has-sub'><a href='#'>Meetings <span class="label label-warning">5</span></a>
 							<ul class="nav" >
 								<li ng-repeat="meet in listOfMeetings" >
-									<a href="#">{{meet.time}} : {{meet.title}} <i class="glyphicon glyphicon-pencil pull-right" ng-click="editItem(listOfMeetings[$index].id, 2 )"></i><i class="glyphicon glyphicon-trash pull-right" ng-click="deleteItem(listOfMeetings[$index].id, 2 )" style="margin-right:10px;"></i></a>
+									<a href="#">{{meet.dayTime}} : {{meet.title}}&nbsp; --{{meet.duration}}Hr <i class="fa fa-building-o"></i>&nbsp;{{meet.venue}}<i class="glyphicon glyphicon-pencil pull-right" ng-click="editItem(listOfMeetings[$index].id, 2 )"></i><i class="glyphicon glyphicon-trash pull-right" ng-click="deleteItem(listOfMeetings[$index].id, 2 )" style="margin-right:10px;"></i></a>
+								</li>
+								<li>
+									<div class="formInsideAccodrion"><input class="form-control" type="text" ng-model="meetingEditor" ng-enter="addMeeting()"></div>
 								</li>
 							</ul>
 						</li>
 						<li class="has-sub"><a data-toggle="tab" href='#id41'>To Do</a>
 							<ul class="nav">
 								<li ng-repeat="task in listOfToDo" >
-									<a href="#"><input type="checkbox" ng-click="todoUpdate(listOfToDo[$index].id)"><div class="taskTitle {{listOfToDo[$index].flag}}" >{{task.title}}</div><i class="glyphicon glyphicon-trash pull-right" ng-click="deleteItem( listOfToDo[$index].id, 3 )"></i></a>
+									<a class="form-group" href="#"><input type="checkbox" ng-click="todoUpdate(listOfToDo[$index].id)"><div class="taskTitle {{listOfToDo[$index].flag}}" >{{task.title}}</div><i class="glyphicon glyphicon-trash pull-right" ng-click="deleteItem( listOfToDo[$index].id, 3 )"></i></a>
 								</li>
 								<li>
 									<div class="formInsideAccodrion"><input class="form-control" type="text" ng-model="newToDo" ng-enter="addNewToDo()"></div>
 								</li>
-							</ul>
-						</li>
-						<li class="has-sub"><a href='#'>Create New +</a>
-							<ul class="nav" >
-								<li><a href="#">+ New Reminder</a></li>
-								<li><a href="#">+ New  Meeting</a></li>
 							</ul>
 						</li>
 					</ul>

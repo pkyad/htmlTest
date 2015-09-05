@@ -86,9 +86,11 @@
 .todoDone{
   display: inline-block;
   margin-left:10px;
+  margin-top: 0px;
   text-decoration:line-through;
 }
 .taskTitle{
   display: inline-block;
+  margin-top: 0px;
   margin-left:10px;
 }

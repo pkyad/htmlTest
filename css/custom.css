@@ -190,11 +190,11 @@
 .formInsideAccodrion{
   background: var(--flatAccordionLevelThree);
   padding: 16px 7px;
+  padding-right: 10px;
 }
 .formInsideAccodrion>input{
   color: black;
 }
-
 .cssmenuAccordion > ul > li > a:hover ,.cssmenuAccordion > ul > li > a:focus {
   color: #ffffff;
   background: var(--headerNavbarHighlight);
