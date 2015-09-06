@@ -16,14 +16,14 @@ ngCal.directive('ngEnter', function () {
     };
 });
 
-ngCal.controller('myCtrl', function($scope) {
+ngCal.controller('myCtrl', function($scope, $document) {
   $scope.listOfMonths = [{"val":0, "disp":"January"}, {"val":1, "disp":"February"}, {"val":2, "disp":"March"}, {"val":3, "disp":"April"}, {"val":4, "disp":"May"}, {"val":5, "disp":"June"}, {"val":6, "disp":"July"}, {"val":7, "disp":"August"}, {"val":8, "disp":"September"}, {"val":9, "disp":"October"}, {"val":10, "disp":"November"}, {"val":11, "disp":"December"}];
   $scope.listOfYears = [{"val":2015, "disp":"2015"}, {"val":2016, "disp":"2016"}, {"val":2017, "disp":"2017"}, {"val":2018, "disp":"2018"}, {"val":2019, "disp":"2019"}];
   $scope.listOfDays = [{"val":1, "disp":"Sunday"}, {"val":1, "disp":"Monday"}, {"val":1, "disp":"Tuesday"}, {"val":1, "disp":"Wednesday"}, {"val":1, "disp":"Thursday"}, {"val":1, "disp":"Friday"}, {"val":1, "disp":"Saturday"}];
 
-  var time1 = new Date('7/9/2015 2:15:34');
-  var time2 = new Date('7/8/2015 4:12:34');
-  var time3 = new Date('7/10/2015 5:11:34');
+  var time1 = new Date('9/6/2015 2:15:34');
+  var time2 = new Date('9/6/2015 4:12:34');
+  var time3 = new Date('9/10/2015 5:11:34');
 
   $scope.listOfToDo = [{"id":1, "flag":"", "title":"Task 1"},{"id":2, "flag":"", "title":"Task 2"},{"id":3, "flag":"", "title":"Task 3"},{"id":4, "flag":"", "title":"Task 4"}];
   $scope.listOfMeetings = [{"id":1, "title": "Review", "venue": "302", "dayTime":time1.toLocaleTimeString().replace(/:\d+ /, ' '), "date":time1, "duration":1}];
@@ -48,6 +48,90 @@ ngCal.controller('myCtrl', function($scope) {
   var idForNewReminder = initialNumOfReminder +1;
   var idForNewMeeting = initialNumOfMeetings +1;
 
+  $scope.updateMonthEvents = function(){
+
+    rCounts = [];
+    rClasses = [];
+    mCounts = [];
+    mClasses = [];
+    // console.log($scope.dates);
+    // console.log($scope.dateFlags);
+    angular.forEach($scope.dates, function(item, key){
+
+      tDate = new Date();
+
+      tType = $scope.dateFlags[key];
+
+      if (tType=="Prev"){
+        tDate.setMonth(calMonth-1)
+      }else if (tType=="Cur"){
+        tDate.setMonth(calMonth)
+      }else{
+        tDate.setMonth(calMonth+1)
+      };
+
+      tDate.setDate(item);
+      tDate.setFullYear(calYear);
+      // console.log(tDate);
+      // console.log(key);
+      // console.log(item);
+      // console.log(tType);
+      // console.log(calMonth);
+      temp = $scope.getDaysEvents(tDate);
+      if (temp.numReminder==0){
+        rClass = "noEvent";
+      }else{
+        rClass = "haveEvent";
+      }
+      if (temp.numMeeting==0){
+        mClass = "noEvent";
+      }else{
+        mClass = "haveEvent";
+      }
+
+      rCounts.push(temp.numReminder);
+      rClasses.push(rClass);
+      mCounts.push(temp.numMeeting);
+      mClasses.push(mClass);
+
+    });
+    $scope.monthEvents = {"remindCounts": rCounts, "remindClass":rClasses, "meetCounts":mCounts , "meetClass":mClasses};
+  };
+
+
+  $scope.getDaysEvents = function(whichDate){
+    var numReminder = 0;
+    var reminders = [];
+
+    var numMeeting = 0;
+    var meetings = [];
+
+    angular.forEach($scope.listOfReminders, function(item, key){
+      // console.log("new item");
+      // console.log(item.date);
+      // console.log(whichDate);
+      // console.log(item.title);
+      if(item.date.getDate()==whichDate.getDate() && item.date.getMonth()==whichDate.getMonth() && item.date.getFullYear()==whichDate.getFullYear()){
+        numReminder +=1;
+        // console.log("True =============================");
+        reminders.push(item);
+      };
+    });
+    angular.forEach($scope.listOfMeetings, function(item, key){
+      if(item.date.getDate()==whichDate.getDate() && item.date.getMonth()==whichDate.getMonth() && item.date.getFullYear()==whichDate.getFullYear()){
+        numMeeting +=1;
+        meetings.push(item);
+      };
+    });
+    return{"numMeeting":numMeeting, "meetings":meetings, "numReminder":numReminder, "reminders":reminders};
+  }
+  $scope.updateDaysEvents = function(){
+    $scope.daysEvents = $scope.getDaysEvents(calDate);
+  }
+
+  $scope.updateDaysEvents();
+  $scope.updateMonthEvents();
+
   $scope.showDetails = function(val){
     if (datesMap.flags[val]=="Cur"){
       $scope.calDate = calDate.setFullYear(calYear, calMonth, $scope.dates[val]);
@@ -66,7 +150,11 @@ ngCal.controller('myCtrl', function($scope) {
       $scope.dayDisp = $scope.listOfDays[calDate.getDay()].disp;
       $scope.dateDisp = calDate;
     };
+    $scope.updateDaysEvents();
+    $scope.updateMonthEvents();
+    // console.log($scope.monthEvents);
   };
+
   $scope.addNewToDo = function(){
     $scope.listOfToDo.push({"id": idForNewToDo, "title": $scope.newToDo});
     idForNewToDo +=1;
@@ -96,7 +184,12 @@ ngCal.controller('myCtrl', function($scope) {
       timeHr = parseInt(timeCom[0]);
       timeMin = parseInt(timeCom[1]);
     }
-    var tObj = new Date();
+    tObj = new Date();
+
+    tObj.setFullYear(calYear);
+    tObj.setMonth(calMonth);
+    tObj.setDate(calDate.getDate());
+
     if (dayTime=="pm"){
       timeHr +=12;
     }
@@ -111,12 +204,14 @@ ngCal.controller('myCtrl', function($scope) {
     $scope.listOfMeetings.push(meetingObj);
     $scope.meetingEditor="";
     idForNewMeeting +=1;
+    $scope.updateDaysEvents();
+    $scope.updateMonthEvents();
     // alert(venue+ duration+ title+tObj);
   };
   $scope.addReminder = function(){
 
     str = $scope.reminderEditor;
-    var parts = str.split("by");
+    var parts = str.split(" by ");
     // var n = str.search(/by/i);
     var timeStr = parts[1];
     var title = parts[0];
@@ -136,7 +231,11 @@ ngCal.controller('myCtrl', function($scope) {
       timeHr = parseInt(timeCom[0]);
       timeMin = parseInt(timeCom[1]);
     }
-    var tObj = new Date();
+    tObj = new Date();
+    tObj.setFullYear(calYear);
+    tObj.setMonth(calMonth);
+    tObj.setDate(calDate.getDate());
+
     if (dayTime=="pm"){
       timeHr +=12;
     }
@@ -145,7 +244,10 @@ ngCal.controller('myCtrl', function($scope) {
     reminderObj = {"id":idForNewReminder, "title":title, "date":tObj, "dayTime":tObj.toLocaleTimeString().replace(/:\d+ /, ' ')};
     $scope.listOfReminders.push(reminderObj);
     $scope.reminderEditor = "";
-    idForNewReminder +=1;
+    idForNewReminder += 1;
+    $scope.updateDaysEvents();
+    $scope.updateMonthEvents();
+    // console.log($scope.listOfReminders);
     // alert(title+ ","+ dayTime+ ","+ dayTimeInd + "end");
   };
 
@@ -163,6 +265,7 @@ ngCal.controller('myCtrl', function($scope) {
 
   $scope.editItem = function(val, itemType){
     // alert(val + " , "  + itemType +"edit clicked");
+
     if (itemType==1){
       angular.forEach($scope.listOfReminders, function(item, key){
         if (item.id==val){
@@ -181,6 +284,8 @@ ngCal.controller('myCtrl', function($scope) {
         };
       });
     };
+    $scope.updateDaysEvents();
+    $scope.updateMonthEvents();
   };
   $scope.deleteItem = function(val, itemType){
     // alert(val+ " , " + itemType + " delete clicked" );
@@ -205,6 +310,8 @@ ngCal.controller('myCtrl', function($scope) {
         };
       });
     };
+    $scope.updateDaysEvents();
+    $scope.updateMonthEvents();
     // alert(val + " , "  + itemType +"edit" + $scope.listOfReminders );
   };
 
@@ -212,12 +319,14 @@ ngCal.controller('myCtrl', function($scope) {
     var today = new Date(); // current day
     calMonth = today.getMonth();
     calYear = today.getFullYear();
-    calDate.setFullYear(calYear, calMonth, today.getDay()-1);
+    calDate = today;
     $scope.dateDisp = calDate;
     $scope.dayDisp = $scope.listOfDays[calDate.getDay()].disp;
     datesMap = getDays(calMonth, calYear);
     $scope.dates = datesMap.days;
     $scope.dateFlags = datesMap.flags;
+    $scope.updateDaysEvents();
+    $scope.updateMonthEvents();
   };
   $scope.gotoNext = function(){
     calMonth +=1;
@@ -226,6 +335,9 @@ ngCal.controller('myCtrl', function($scope) {
     $scope.dates = datesMap.days;
     $scope.dateFlags = datesMap.flags;
     $scope.dateDisp = calDate;
+    $scope.dayDisp = $scope.listOfDays[calDate.getDay()].disp;
+    $scope.updateDaysEvents();
+    $scope.updateMonthEvents();
   };
   $scope.gotoPrev = function(){
     calMonth -=1;
@@ -234,6 +346,9 @@ ngCal.controller('myCtrl', function($scope) {
     $scope.dates = datesMap.days;
     $scope.dateFlags = datesMap.flags;
     $scope.dateDisp = calDate;
+    $scope.dayDisp = $scope.listOfDays[calDate.getDay()].disp;
+    $scope.updateDaysEvents();
+    $scope.updateMonthEvents();
   };
   $scope.gotoPerticular = function(){
     calMonth = $scope.dropMonth.val;
@@ -243,6 +358,8 @@ ngCal.controller('myCtrl', function($scope) {
     datesMap = getDays(calMonth, calYear);
     $scope.dates = datesMap.days;
     $scope.dateFlags = datesMap.flags;
+    $scope.updateDaysEvents();
+    $scope.updateMonthEvents();
   };
   $scope.range = function(min, max, step){
     step = step || 1;
@@ -257,6 +374,7 @@ function daysInMonth(month,year) {
 }
 
 function getDays(month , year){
+
  // This function gives the dates of the month and the year in the array.
   var numDays = daysInMonth(month+1, year); // Number of days in the current month
   var numDaysPrev = daysInMonth(month, year); // Number of days in the current month
@@ -300,6 +418,7 @@ function getDays(month , year){
 };
 
 (function($){
+
 	$(document).ready(function(){
 		$('#ngCalAccordion li.active').addClass('open').children('ul').show();
 		$('#ngCalAccordion li.has-sub>a').on('click', function(){
@@ -320,4 +439,5 @@ function getDays(month , year){
 			}
 		});
 	});
+
 })(jQuery);

@@ -1,6 +1,6 @@
 :root {
   --themeMain: #3d9483 ;
-  --headerNavbarHighlight:#19a185;
+  --headerNavbarHighlight:#0e4a3e;
   --flatAccordionLevelThree: #65ab98;
 
   /*--themeMain:#d77a2d ;
@@ -117,11 +117,9 @@
 
 .form-control{
   border-radius: 0px;
-  box-shadow: none;
 }
 .btn{
   border-radius: 0px;
-  box-shadow: none;
 }
 
 
@@ -190,7 +188,7 @@
 .formInsideAccodrion{
   background: var(--flatAccordionLevelThree);
   padding: 16px 7px;
-  padding-right: 10px;
+  padding-right: 8px;
 }
 .formInsideAccodrion>input{
   color: black;

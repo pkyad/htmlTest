@@ -94,3 +94,19 @@
   margin-top: 0px;
   margin-left:10px;
 }
+
+.dayItems{
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+}
+.haveEvent{
+  visibility: visible;
+}
+.noEvent{
+  visibility: hidden;
+}
+
+.label-colored{
+  background: #378600;
+}

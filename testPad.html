@@ -36,22 +36,22 @@
 		<hr></hr>
 		<div class="container ngCalenderMain col-md-7 col-sm-12 col-md-offset-1">
 			<div class="row">
-				<div class="btn-group col-md-3">
-					<button class="btn btn-default" ng-click="gotoPrev()"> <i class="glyphicon glyphicon-chevron-left"></i> </button>
-					<button class="btn btn-default" ng-click="gotoNext()"> <i class="glyphicon glyphicon-chevron-right"></i></button>
-					<button class="btn btn-success" ng-click="gotoToday()">Today</button>
+				<div class="btn-group col-md-3 col-sm-12 col-xs-12">
+					<button class="btn btn-default col-sm-3 col-xs-3" ng-click="gotoPrev()"> <i class="glyphicon glyphicon-chevron-left"></i> </button>
+					<button class="btn btn-default col-sm-3 col-xs-3" ng-click="gotoNext()"> <i class="glyphicon glyphicon-chevron-right"></i></button>
+					<button class="btn btn-success col-sm-6 col-xs-6" ng-click="gotoToday()">Today</button>
 				</div>
-				<div class="headerCalender col-md-5">
+				<div class="headerCalender col-md-5 col-sm-12 col-xs-12">
 					<p>{{dateDisp | date:'MMM yyyy'}} </p>
 				</div>
-				<div class="col-md-4">
-					<div class="col-md-7">
+				<div class="col-md-4 col-sm-12 col-xs-12">
+					<div class="col-md-7 col-sm-6 col-xs-6">
 						<select class="form-control" ng-options="obj.disp for obj in listOfMonths track by obj.val"
 				      ng-model="dropMonth"
 				      ng-change="gotoPerticular()">
 						</select>
 					</div>
-					<div class="col-md-5 pull-right">
+					<div class="col-md-5 col-sm-6 col-xs-6 pull-right">
 						<select class="form-control" ng-options="obj.disp for obj in listOfYears track by obj.val"
 							ng-model="dropYear"
 							ng-change="gotoPerticular()">
@@ -61,7 +61,7 @@
 			</div>
 			<hr></hr>
 			<div class="row">
-				<div class="weekHeader">
+				<div class="weekHeader hidden-xs hidden-sm">
 					<div class="weekDay">Sunday</div>
 					<div class="weekDay">Monday</div>
 					<div class="weekDay">Tuesday</div>
@@ -70,19 +70,39 @@
 					<div class="weekDay">Friday</div>
 					<div class="weekDay">Saturday</div>
 				</div>
+				<div class="weekHeader hidden-md hidden-lg hidden-xs">
+					<div class="weekDay">Sun</div>
+					<div class="weekDay">Mon</div>
+					<div class="weekDay">Tue</div>
+					<div class="weekDay">Wed</div>
+					<div class="weekDay">Thu</div>
+					<div class="weekDay">Fri</div>
+					<div class="weekDay">Sat</div>
+
+				</div>
+				<div class="weekHeader hidden-xl hidden-md hidden-sm hidden-lg">
+					<div class="weekDay">S</div>
+					<div class="weekDay">M</div>
+					<div class="weekDay">T</div>
+					<div class="weekDay">W</div>
+					<div class="weekDay">T</div>
+					<div class="weekDay">F</div>
+					<div class="weekDay">S</div>
+				</div>
 			</div>
 			<div class="week">
 					<div class="day" ng-repeat="k in range(0,41)" ng-click="showDetails(k)">
 						<div class="dayNumber dayType{{dateFlags[k]}}">
 							{{dates[$index]}}
 						</div>
-						<div id="date{{$index}}">
-
+						<div id="date{{$index}}" class="dayItems">
+							<span class="label label-warning {{monthEvents.remindClass[$index]}}">{{monthEvents.remindCounts[$index]}}</span>
+							<span class="label label-colored {{monthEvents.meetClass[$index]}}">{{monthEvents.meetCounts[$index]}}</span>
 						</div>
 					</div>
 			</div>
 		</div>
-		<div class="col-md-2 col-sm-12 col-xs-12">
+		<div class="col-md-3 col-sm-12 col-xs-12">
 			<div class="row bg-yellow">
 				<span class="ngCalenderIcon bg-yellow"><i class="fa fa-calendar"></i></span>
 				<div class="dayDetails">
@@ -94,20 +114,20 @@
 			<div class="row ngCalEvents bg-aqua">
 				<div id="ngCalAccordion" class="cssmenuAccordion">
 					<ul class="nav">
-						<li class="has-sub"><a href='#'>Reminders <span class="label label-warning">2</span></a>
+						<li class="has-sub"><a href='#'>Reminders &nbsp;&nbsp;<span class="label label-warning">{{daysEvents.numReminder}}</span></a>
 							<ul class="nav" >
-								<li ng-repeat="remind in listOfReminders" >
-									<a href="#">{{remind.dayTime}} : {{remind.title}}  <i class="glyphicon glyphicon-pencil pull-right" ng-click="editItem(listOfReminders[$index].id, 1)"></i><i class="glyphicon glyphicon-trash pull-right" ng-click="deleteItem(listOfReminders[$index].id , 1)" style="margin-right:10px;"></i></a>
+								<li ng-repeat="remind in daysEvents.reminders" >
+									<a href="#">{{remind.dayTime}} : {{remind.title}}  <i class="glyphicon glyphicon-pencil pull-right" ng-click="editItem(daysEvents.reminders[$index].id, 1)"></i><i class="glyphicon glyphicon-trash pull-right" ng-click="deleteItem(daysEvents.reminders[$index].id , 1)" style="margin-right:10px;"></i></a>
 								</li>
 								<li>
 									<div class="formInsideAccodrion"><input class="form-control" type="text" ng-model="reminderEditor" ng-enter="addReminder()"></div>
 								</li>
 							</ul>
 						</li>
-						<li class='has-sub'><a href='#'>Meetings <span class="label label-warning">5</span></a>
+						<li class='has-sub'><a href='#'>Meetings &nbsp;&nbsp;<span class="label label-colored">{{daysEvents.numMeeting}}</span></a>
 							<ul class="nav" >
-								<li ng-repeat="meet in listOfMeetings" >
-									<a href="#">{{meet.dayTime}} : {{meet.title}}&nbsp; --{{meet.duration}}Hr <i class="fa fa-building-o"></i>&nbsp;{{meet.venue}}<i class="glyphicon glyphicon-pencil pull-right" ng-click="editItem(listOfMeetings[$index].id, 2 )"></i><i class="glyphicon glyphicon-trash pull-right" ng-click="deleteItem(listOfMeetings[$index].id, 2 )" style="margin-right:10px;"></i></a>
+								<li ng-repeat="meet in daysEvents.meetings" >
+									<a href="#">{{meet.dayTime}} : {{meet.title}}&nbsp;  <i class="glyphicon glyphicon-time"></i>{{meet.duration}}Hr <i class="fa fa-building-o"></i>&nbsp;{{meet.venue}}<i class="glyphicon glyphicon-pencil pull-right" ng-click="editItem(daysEvents.meetings[$index].id, 2 )"></i><i class="glyphicon glyphicon-trash pull-right" ng-click="deleteItem(daysEvents.meetings[$index].id, 2 )" style="margin-right:10px;"></i></a>
 								</li>
 								<li>
 									<div class="formInsideAccodrion"><input class="form-control" type="text" ng-model="meetingEditor" ng-enter="addMeeting()"></div>
