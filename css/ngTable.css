@@ -1,0 +1,12 @@
+:root {
+  /*--themeMain: #3d9483 ;
+  --headerNavbarHighlight:#0e4a3e;
+  --flatAccordionLevelThree: #65ab98;
+  --verticalNavbarBg: #eeeeee;*/
+}
+input[type="text"] {
+     width: 100%;
+     box-sizing: border-box;
+     -webkit-box-sizing:border-box;
+     -moz-box-sizing: border-box;
+}
