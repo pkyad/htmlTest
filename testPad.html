@@ -23,84 +23,124 @@
 
 	<div ng-app="ngTest" ng-controller="myCtrl">
 
-		Name: <input type="text" ng-model="Name">	Name: {{Name}}
+		<!-- Name: <input type="text" ng-model="Name">	Name: {{Name}} -->
 		<hr></hr>
 
-		<button class="btn btn-success" type="button" name="button"><i class="glyphicon glyphicon-plus"> Add</i></button>
+		<div class="ngTable col-md-10 col-md-offset-1">
+			<div class="row">
+				<button  class="btn btn-success" type="button" name="button"><i class="glyphicon glyphicon-plus"> Add</i></button>
+			</div>
+			<div class="row" style="margin-top:10px;">
+				<table class="table table-bordered table-hover">
 
-		<div class="container col-md-11">
-			<table class="table table-bordered table-hover">
-
-				<tr>
-					<th>Name</th>
-					<th>Email</th>
-					<th>Company</th>
-					<th>Country</th>
-					<th>Actions</th>
-				</tr>
-				<tr>
-					<td>Yuri Elliott</td>
-					<td>sem@auctorvelitAliquam.com</td>
-					<td>Sapien LLP</td>
-					<td>Tuvalu</td>
-					<td ><i class="glyphicon glyphicon-pencil"></i> <i class="glyphicon glyphicon-trash"></i></td>
-				</tr>
-				<tr>
-					<td><input type="text" style="width:100%; "></td>
-					<td>Maecenas@estmollisnon.org</td>
-					<td id="assets">Leo Corp.</td>
-					<td>
-						<select class="form-control" name="">
-							<option value="value1"> Value 1</option>
-							<option value="value2"> Value 2 </option>
-							<option value="value3"> Value 3 </option>
-						</select>
-					</td>
-					<td><i  class="glyphicon glyphicon-pencil"></i> <i class="glyphicon glyphicon-trash"></i></td>
-				</tr>
-				<tr>
-					<td>Rhiannon Spencer</td>
-					<td>non.lorem.vitae@Nuncmauriselit.com</td>
-					<td>Tellus Sem LLP</td>
-					<td>Saint Martin</td>
-					<td><i class="glyphicon glyphicon-pencil"></i> <i class="glyphicon glyphicon-trash"></i></td>
-				</tr>
-				<tr>
-					<td>Gisela Fox</td>
-					<td>netus@dolorvitaedolor.net</td>
-					<td>Morbi Metus Vivamus Corporation</td>
-					<td>Somalia</td>
-					<td><i class="glyphicon glyphicon-pencil"></i> <i class="glyphicon glyphicon-trash"></i></td>
-				</tr>
-				<tr>
-					<td>Keelie Mathews</td>
-					<td>Sed@Maurisutquam.co.uk</td>
-					<td>Donec Vitae Erat Incorporated</td>
-					<td>Kiribati</td>
-					<td><i class="glyphicon glyphicon-pencil"></i> <i class="glyphicon glyphicon-trash"></i></td>
-				</tr>
-				<tr>
-					<td>Wendy Valdez</td>
-					<td>Vestibulum.ut.eros@malesuadaiderat.org</td>
-					<td>Donec Non Associates</td>
-					<td>Malawi</td>
-					<td><i class="glyphicon glyphicon-pencil"></i> <i class="glyphicon glyphicon-trash"></i></td>
-				</tr>
-				<tr>
-					<td>Daria Shelton</td>
-					<td>a.sollicitudin@eutellus.net</td>
-					<td>Mauris Integer Sem Institute</td>
-					<td>Rwanda</td>
-					<td><i class="glyphicon glyphicon-pencil"></i> <i class="glyphicon glyphicon-trash"></i></td>
-				</tr>
-				<tr>
-					<td>Rhona Solomon</td>
-					<td>libero@eutelluseu.com</td>
-					<td>Odio Etiam Company</td>
-					<td>Germany</td>
-					<td><i class="glyphicon glyphicon-pencil"></i> <i class="glyphicon glyphicon-trash"></i></td>
-				</tr>
-			</table>
+					<tr class="bg-aqua">
+						<th>ID</th>
+						<th>Name</th>
+						<th>Email</th>
+						<th>Company</th>
+						<th>Country</th>
+						<th>Check</th>
+						<th style="text-align:center;">Actions</th>
+						<th>
+							Info
+						</th>
+					</tr>
+					<tr>
+						<td>1</td>
+						<td>Yuri Elliott</td>
+						<td>sem@auctorvelitAliquam.com</td>
+						<td>Sapien LLP</td>
+						<td>Tuvalu</td>
+						<td>
+						<input  type="checkbox">
+						</td>
+						<td  align="center"><i id = "tester" class="glyphicon glyphicon-pencil"></i>&nbsp;&nbsp;<i class="glyphicon glyphicon-trash"></i></td>
+						<td align="center">
+							<button type="button" id="tester2" class="btn btn-info btn-xs" name="button"><i class="glyphicon glyphicon-info-sign"></i></button>
+						</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td><input type="text" class="form-control" placeholder="Name" style="width:100%;"></td>
+						<td><input type="text" class="form-control" placeholder="e-mail" style="width:100%; "></td>
+						<td><input type="text" class="form-control" placeholder="Company" style="width:100%; "></td>
+						<td>
+							<select class="form-control" name="">
+								<option value="value1"> Value 1</option>
+								<option value="value2"> Value 2 </option>
+								<option value="value3"> Value 3 </option>
+							</select>
+						</td>
+						<td>
+								<input  type="checkbox">
+						</td>
+						<!-- <td><i  class="glyphicon glyphicon-pencil"></i> &nbsp; &nbsp;<i class="glyphicon glyphicon-trash"></i></td> -->
+						<td  align="center">
+							<div class="btn-group" >
+								<button type="button" class="btn btn-success" name="button"><i  class="glyphicon glyphicon-ok"></i></button>
+								<button type="button" class="btn btn-warning" name="button"><i class="glyphicon glyphicon-remove"></i></button>
+							</div>
+						</td>
+						<td align="center">
+							<button type="button"  class="btn btn-info btn-xs" name="button"><i class="glyphicon glyphicon-info-sign"></i></button>
+						</td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>Rhiannon Spencer</td>
+						<td>non.lorem.vitae@Nuncmauriselit.com</td>
+						<td>Tellus Sem LLP</td>
+						<td>Saint Martin</td>
+						<td>
+							<input  type="checkbox">
+						</td>
+						<td align="center"><i class="glyphicon glyphicon-pencil"></i> &nbsp;&nbsp;<i class="glyphicon glyphicon-trash"></i></td>
+						<td align="center">
+							<button type="button" class="btn btn-info btn-xs" name="button"><i class="glyphicon glyphicon-info-sign"></i></button>
+						</td>
+					</tr>
+					<tr>
+						<td>4</td>
+						<td>Gisela Fox</td>
+						<td>netus@dolorvitaedolor.net</td>
+						<td>Morbi Metus Vivamus Corporation</td>
+						<td>Somalia</td>
+						<td>
+							<input  type="checkbox">
+						</td>
+						<td align="center"><i class="glyphicon glyphicon-pencil"></i> &nbsp;&nbsp;<i class="glyphicon glyphicon-trash"></i></td>
+						<td align="center">
+							<button type="button" class="btn btn-info btn-xs" name="button"><i class="glyphicon glyphicon-info-sign"></i></button>
+						</td>
+					</tr>
+					<tr>
+						<td>5</td>
+						<td>Keelie Mathews</td>
+						<td>Sed@Maurisutquam.co.uk</td>
+						<td>Donec Vitae Erat Incorporated</td>
+						<td>Kiribati</td>
+						<td>
+							<input  type="checkbox">
+						</td>
+						<td align="center"><i class="glyphicon glyphicon-pencil"></i>&nbsp;&nbsp; <i class="glyphicon glyphicon-trash"></i></td>
+						<td align="center">
+							<button type="button" class="btn btn-info btn-xs" name="button"><i class="glyphicon glyphicon-info-sign"></i></button>
+						</td>
+					</tr>
+					<tr>
+						<td>7</td>
+						<td>Wendy Valdez</td>
+						<td>Vestibulum.ut.eros@malesuadaiderat.org</td>
+						<td>Donec Non Associates</td>
+						<td>Malawi</td>
+						<td><input  type="checkbox"></td>
+						<td align="center"><i class="glyphicon glyphicon-pencil"></i>&nbsp;&nbsp; <i class="glyphicon glyphicon-trash"></i></td>
+						<td align="center">
+							<button type="button" class="btn btn-info btn-xs" name="button"><i class="glyphicon glyphicon-info-sign"></i></button>
+						</td>
+					</tr>
+				</table>
+			</div>
 		</div>
 	</div> <!-- The app closing tag -->
 </body
