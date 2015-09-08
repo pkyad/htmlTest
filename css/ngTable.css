@@ -4,10 +4,3 @@
   --flatAccordionLevelThree: #65ab98;
   --verticalNavbarBg: #eeeeee;*/
 }
-
-.nonActive{
-  display: none;
-}
-.actionIcons{
-	cursor:pointer;
-}
