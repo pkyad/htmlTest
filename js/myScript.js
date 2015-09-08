@@ -18,6 +18,37 @@ ngTest.directive('ngEnter', function () {
 
 ngTest.controller('myCtrl', function($scope ) {
 
+  var numOfCols = 8;
+  var numOfRowPerView = 5;
+
+  $scope.editorFlags = twoDArray(numOfCols, numOfRowPerView);
+  var editorActive = 0;
+  // console.log($scope.editorFlags[0][0].editor);
+
+  var numOfEditableFields = 4;
+  $scope.listOfItems = $scope.listOfYears = [{"val":1, "string":"India"}, {"val":2, "string":"UK"}, {"val":3, "string":"US"}, {"val":4, "string":"Germany"}, {"val":5, "disp":"France"}];
+
+  $scope.editorField = [];
+  var field =[]
+  for (var i= 0; i<numOfRowPerView ; i +=1) {
+    field.push({val: 0, string:""});
+  }
+  ;
+  for (var i= 0; i<numOfEditableFields ; i +=1) {
+    $scope.editorField.push(field);
+  }
+  console.log($scope.editorField);
+
+  $scope.editorName = [];
+  $scope.editorEmail = [];
+  $scope.editorCompany = [];
+
+  for (var i= 0; i<numOfRowPerView ; i +=1) {
+    console.log($scope.editorField[i]);
+    $scope.editorName.push("");
+    $scope.editorEmail.push("");
+    $scope.editorCompany.push("");
+  }
 
   var data = [
     {
@@ -82,58 +113,102 @@ ngTest.controller('myCtrl', function($scope ) {
     }
   ];
   $scope.tableData = data;
-  $scope.testText = "hello";
-  testText = "hello from the var";
 
-  $scope.ngTestFuntion = function(){
-    alert("from the test ng function");
+  $scope.editRow = function(id){
+    if (editorActive==0){
+
+      for (var j= 0; j<numOfCols ; j +=1) {
+        $scope.editorFlags[id][j].editor = "";
+        $scope.editorFlags[id][j].value = "nonActive";
+      };
+      $scope.editorName[id] = $scope.tableData[id].name;
+      $scope.editorEmail[id] =  $scope.tableData[id].email;
+      $scope.editorCompany[id] =  $scope.tableData[id].company;
+      editorActive = 1;
+    } else{
+      alert("Colse the active editor and try again.");
+    }
   };
 
+  $scope.calcelEditor = function(id){
+
+    for (var j= 0; j<numOfCols ; j +=1) {
+      $scope.editorFlags[id][j].editor = "nonActive";
+      $scope.editorFlags[id][j].value = "";
+    };
+    editorActive = 0;
+  };
+
+  $scope.deleteRow = function(id){
+    $scope.tableData.splice(id, 1);
+    $scope.editorFlags.splice(id, 1);
+    $scope.editorName.splice(id, 1);
+    $scope.editorEmail.splice(id, 1);
+    $scope.editorCompany.splice(id, 1);
+  };
+  $scope.addRow = function(){
+    $scope.editorName.push("");
+    $scope.editorEmail.push("");
+    $scope.editorCompany.push("");
+    var rowMat = [];
+    for (var j= 0; j<numOfCols ; j +=1) {
+      rowMat.push({value:"nonActive", editor:""});
+    };
+    $scope.editorFlags.push(rowMat);
+    var dummy = {
+      id:5,
+      name:"Wendy Valdez",
+      email:"someone@malesu.com",
+      company:"Non Associates",
+      country:"USA",
+      check:"true",
+      info:{
+        title:"a model title 5",
+        content:"loren ipsum text for model 5"
+        }
+      };
+      $scope.tableData.push(dummy);
+      editorActive = 1;
+
+  };
+
+  $scope.updateTable = function(id){
+    // console.log("test");
+    console.log($scope.editorName);
+    console.log($scope.Name);
+    $scope.tableData[id].name = $scope.editorName[id];
+    $scope.tableData[id].email = $scope.editorEmail[id];
+    $scope.tableData[id].company = $scope.editorCompany[id];
+    $scope.calcelEditor(id);
+  };
+
+  $scope.ngTestFuntion = function(id){
+    alert("from the test ng function");
+    console.log(id);
+  };
 
 });
+
+function twoDArray(col, row){
+  var mat = [];
+  var rowMat = [];
+  for (var i= 0; i<row ; i +=1) {
+    rowMat = [];
+    for (var j= 0; j<col ; j +=1) {
+      rowMat.push({value:"", editor:"nonActive"});
+    };
+    mat.push(rowMat);
+  };
+  return mat;
+};
+
 
 
 (function($){
 	$(document).ready(function(){
 
     $('#tester').on('click', function() {
-      // $(this).parent().parent().html("<p>text</p>");
-      var idOfTheRow = $(this).parent().parent().children()[0].firstChild.data;
 
-      var htmlOfTheRowEditor = '<td>'+idOfTheRow+'</td>\
-      <td><input type="text" class="form-control" placeholder="Name" style="width:100%;"></td>\
-      <td><input type="text" class="form-control" placeholder="e-mail" style="width:100%; "></td>\
-      <td><input type="text" class="form-control" placeholder="Company" style="width:100%; "></td>\
-      <td>\
-        <select class="form-control" name="">\
-          <option value="value1"> Value 1</option>\
-          <option value="value2"> Value 2 </option>\
-          <option value="value3"> Value 3 </option>\
-        </select>\
-      </td>\
-      <td>\
-          <input  type="checkbox">\
-      </td>\
-      <!-- <td><i  class="glyphicon glyphicon-pencil"></i> &nbsp; &nbsp;<i class="glyphicon glyphicon-trash"></i></td> -->\
-      <td  align="center">\
-        <div class="btn-group" >\
-          <button type="button" ng-click=ngTestFuntion() class="btn btn-success" name="button"><i  class="glyphicon glyphicon-ok" ></i></button>\
-          <button type="button" class="btn btn-warning" name="button"><i class="glyphicon glyphicon-remove"></i></button>\
-        </div>\
-      </td>\
-      <td align="center">\
-        <button type="button" id = "tester2" class="btn btn-info btn-xs" name="button"><i class="glyphicon glyphicon-info-sign"></i></button>\
-      </td>\
-      ';
-      $(this).parent().parent().html(htmlOfTheRowEditor);
-      // console.log(idOfTheRow+"something");
-      // alert(htmlOfTheRowEditor);
-      testText = "text from a jquery on click function";
-    }); // end of the tester function
-
-    $('#tester2').on('click', function(){
-      alert("came in the tester 2 function");
-      console.log(testText);
     });
 
 

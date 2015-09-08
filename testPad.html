@@ -13,7 +13,7 @@
 	<link rel="stylesheet" href="css/font-awesome.min.css" type="text/css"/>
 	<script type="text/javascript" src="js/angular.min.js"></script>
 	<script type="text/javascript" src="js/myScript.js"></script>
-	<link rel="stylesheet" href="css/ngularCalender.css" media="screen" title="no title" charset="utf-8">
+	<link rel="stylesheet" href="css/ngTable.css" media="screen" title="no title" charset="utf-8">
 
 	</script>
 
@@ -28,12 +28,12 @@
 
 		<div class="ngTable col-md-10 col-md-offset-1">
 			<div class="row">
-				<button  class="btn btn-success" type="button" name="button"><i class="glyphicon glyphicon-plus"> Add</i></button>
+				<button ng-click=addRow()  class="btn btn-success" type="button" name="button"><i class="glyphicon glyphicon-plus"> Add</i></button>
 			</div>
 			<div class="row" style="margin-top:10px;">
 				<table class="table table-bordered table-hover">
 
-					<tr class="bg-aqua">
+					<tr class="bg-red">
 						<th>ID</th>
 						<th>Name</th>
 						<th>Email</th>
@@ -41,102 +41,54 @@
 						<th>Country</th>
 						<th>Check</th>
 						<th style="text-align:center;">Actions</th>
-						<th>
+						<th style="text-align:center;">
 							Info
 						</th>
 					</tr>
-					<tr>
-						<td>1</td>
-						<td>Yuri Elliott</td>
-						<td>sem@auctorvelitAliquam.com</td>
-						<td>Sapien LLP</td>
-						<td>Tuvalu</td>
-						<td>
-						<input  type="checkbox">
+					<tr ng-repeat="row in tableData" >
+						<td class="{{editorFlags[$index][0].value}}">{{row.id}}</td>
+						<td class="{{editorFlags[$index][0].editor}}">
+							<input type="text" class="form-control " placeholder="ID" style="width:100%;">
 						</td>
-						<td  align="center"><i id = "tester" class="glyphicon glyphicon-pencil"></i>&nbsp;&nbsp;<i class="glyphicon glyphicon-trash"></i></td>
-						<td align="center">
-							<button type="button" id="tester2" class="btn btn-info btn-xs" name="button"><i class="glyphicon glyphicon-info-sign"></i></button>
+						<td class="{{editorFlags[$index][1].value}}">{{row.name}}</td>
+						<td class="{{editorFlags[$index][1].editor}}">
+							<input type="text" class="form-control" ng-model="editorName[$index]"  style="width:100%;">
 						</td>
-					</tr>
-					<tr>
-						<td>2</td>
-						<td><input type="text" class="form-control" placeholder="Name" style="width:100%;"></td>
-						<td><input type="text" class="form-control" placeholder="e-mail" style="width:100%; "></td>
-						<td><input type="text" class="form-control" placeholder="Company" style="width:100%; "></td>
-						<td>
-							<select class="form-control" name="">
-								<option value="value1"> Value 1</option>
-								<option value="value2"> Value 2 </option>
-								<option value="value3"> Value 3 </option>
+						<td class="{{editorFlags[$index][2].value}}">{{row.email}}</td>
+						<td class="{{editorFlags[$index][2].editor}}">
+							<input type="text" class="form-control " ng-model="editorEmail[$index]" style="width:100%;">
+						</td>
+						<td class="{{editorFlags[$index][3].value}}">{{row.company}}</td>
+						<td class="{{editorFlags[$index][3].editor}}">
+							<input type="text" class="form-control" ng-model="editorCompany[$index]" style="width:100%;">
+						</td>
+						<td class="{{editorFlags[$index][4].value}}">{{row.country}}</td>
+						<td class="{{editorFlags[$index][4].editor}}" >
+							<select class="form-control" ng-options="obj.disp for obj in listOfItems track by obj.val"
+								ng-model="dropItem"
+								ng-change="gotoPerticular()">
 							</select>
 						</td>
-						<td>
-								<input  type="checkbox">
+						<td class="{{editorFlags[$index][5].value}}">{{row.check}}</td>
+						<td class="{{editorFlags[$index][5].editor}}">
+							<input  type="checkbox">
 						</td>
-						<!-- <td><i  class="glyphicon glyphicon-pencil"></i> &nbsp; &nbsp;<i class="glyphicon glyphicon-trash"></i></td> -->
-						<td  align="center">
+
+						<td class="{{editorFlags[$index][6].value}}" align="center">
+							<i ng-click=editRow($index) class="glyphicon glyphicon-pencil actionIcons"></i>&nbsp;&nbsp;<i ng-click=deleteRow($index) class="glyphicon glyphicon-trash actionIcons"></i>
+						</td>
+						<td class="{{editorFlags[$index][6].editor}}" align="center">
 							<div class="btn-group" >
-								<button type="button" class="btn btn-success" name="button"><i  class="glyphicon glyphicon-ok"></i></button>
-								<button type="button" class="btn btn-warning" name="button"><i class="glyphicon glyphicon-remove"></i></button>
+								<button ng-click=updateTable($index)  type="button" class="btn btn-success" name="button"><i  class="glyphicon glyphicon-ok" ></i></button>
+								<button ng-click=calcelEditor($index) type="button" class="btn btn-warning" name="button"><i class="glyphicon glyphicon-remove"></i></button>
 							</div>
 						</td>
-						<td align="center">
-							<button type="button"  class="btn btn-info btn-xs" name="button"><i class="glyphicon glyphicon-info-sign"></i></button>
-						</td>
-					</tr>
-					<tr>
-						<td>3</td>
-						<td>Rhiannon Spencer</td>
-						<td>non.lorem.vitae@Nuncmauriselit.com</td>
-						<td>Tellus Sem LLP</td>
-						<td>Saint Martin</td>
-						<td>
-							<input  type="checkbox">
-						</td>
-						<td align="center"><i class="glyphicon glyphicon-pencil"></i> &nbsp;&nbsp;<i class="glyphicon glyphicon-trash"></i></td>
-						<td align="center">
+
+						<td class="{{editorFlags[$index][7].value}}" align="center">
 							<button type="button" class="btn btn-info btn-xs" name="button"><i class="glyphicon glyphicon-info-sign"></i></button>
 						</td>
-					</tr>
-					<tr>
-						<td>4</td>
-						<td>Gisela Fox</td>
-						<td>netus@dolorvitaedolor.net</td>
-						<td>Morbi Metus Vivamus Corporation</td>
-						<td>Somalia</td>
-						<td>
-							<input  type="checkbox">
-						</td>
-						<td align="center"><i class="glyphicon glyphicon-pencil"></i> &nbsp;&nbsp;<i class="glyphicon glyphicon-trash"></i></td>
-						<td align="center">
-							<button type="button" class="btn btn-info btn-xs" name="button"><i class="glyphicon glyphicon-info-sign"></i></button>
-						</td>
-					</tr>
-					<tr>
-						<td>5</td>
-						<td>Keelie Mathews</td>
-						<td>Sed@Maurisutquam.co.uk</td>
-						<td>Donec Vitae Erat Incorporated</td>
-						<td>Kiribati</td>
-						<td>
-							<input  type="checkbox">
-						</td>
-						<td align="center"><i class="glyphicon glyphicon-pencil"></i>&nbsp;&nbsp; <i class="glyphicon glyphicon-trash"></i></td>
-						<td align="center">
-							<button type="button" class="btn btn-info btn-xs" name="button"><i class="glyphicon glyphicon-info-sign"></i></button>
-						</td>
-					</tr>
-					<tr>
-						<td>7</td>
-						<td>Wendy Valdez</td>
-						<td>Vestibulum.ut.eros@malesuadaiderat.org</td>
-						<td>Donec Non Associates</td>
-						<td>Malawi</td>
-						<td><input  type="checkbox"></td>
-						<td align="center"><i class="glyphicon glyphicon-pencil"></i>&nbsp;&nbsp; <i class="glyphicon glyphicon-trash"></i></td>
-						<td align="center">
-							<button type="button" class="btn btn-info btn-xs" name="button"><i class="glyphicon glyphicon-info-sign"></i></button>
+						<td class="{{editorFlags[$index][7].editor}}" align="center">
+							<button type="button" class="btn btn-info" name="button"><i class="glyphicon glyphicon-info-sign"></i></button>
 						</td>
 					</tr>
 				</table>
