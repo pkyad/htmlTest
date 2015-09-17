@@ -67,13 +67,13 @@
 								ng-model="tableData[$index].country">
 							</select>
 						</td>
-						<td ng-hide="editorCursor==$index">{{row.check}}</td>
+						<td ng-hide="editorCursor==$index"><input disabled="!editorCursor==$index" type="checkbox" ng-model="tableData[$index].check"></td>
 						<td ng-show="editorCursor==$index">
 							<input type="checkbox" ng-model="tableData[$index].check">
 						</td>
 
 						<td ng-hide="editorCursor==$index" align="center">
-							<i ng-click=editRow($index) class="glyphicon glyphicon-pencil actionIcons"></i>&nbsp;&nbsp;<i ng-click=deleteRow($index) class="glyphicon glyphicon-trash actionIcons"></i>
+							<i ng-click=editRow($index) class="glyphicon glyphicon-pencil"></i>&nbsp;&nbsp;<i ng-click=deleteRow($index) class="glyphicon glyphicon-trash"></i>
 						</td>
 						<td ng-show="editorCursor==$index" align="center">
 							<div class="btn-group">
@@ -83,13 +83,32 @@
 						</td>
 
 						<td ng-hide="editorCursor==$index" align="center">
-							<button type="button" class="btn btn-info btn-xs" name="button"><i class="glyphicon glyphicon-info-sign"></i></button>
+							<button ng-click="toggleModal($index)" type="button" class="btn btn-info btn-xs" name="button"><i class="glyphicon glyphicon-info-sign"></i></button>
 						</td>
 						<td ng-show="editorCursor==$index" align="center">
-							<button type="button" class="btn btn-info" name="button"><i class="glyphicon glyphicon-info-sign"></i></button>
+							<button ng-click="toggleModal($index)" type="button" class="btn btn-info" name="button"><i class="glyphicon glyphicon-info-sign"></i></button>
 						</td>
 					</tr>
 				</table>
+				<!-- ngTable ends here  -->
+				<hr><hr>
+
+				<modal title="Login form" visible="showModal">
+					<form role="form">
+					  <div class="form-group">
+					    <label for="name">Name</label>
+					    <input type="text" class="form-control" id="name" placeholder="Enter or modify the name..." ng-model="modalData.name"/>
+					  </div>
+					  <div class="form-group">
+					    <label for="Country">Country</label>
+							<select class="form-control" id="Country" ng-options="obj.string for obj in listOfItems track by obj.val"
+								ng-model="modalData.country">
+							</select>
+					  </div>
+					  <!-- <button type="submit" class="btn btn-default">Submit</button> -->
+					</form>
+				</modal>
+
 			</div>
 		</div>
 	</div> <!-- The app closing tag -->
